@@ -1,0 +1,29 @@
+{
+	"name": "jazzofcourse-webapp",
+	"build": {
+		"dockerfile": "./dockerfile",
+		"context": ".."
+	},
+	"customizations": {
+		"vscode": {
+			"settings": {
+				"git.path": "/usr/bin/git"
+			},
+			"extensions": [
+				"naumovs.color-highlight",
+				"spmeesseman.vscode-taskexplorer",
+				"esbenp.prettier-vscode",
+				"GitHub.copilot",
+				"ms-vscode.vscode-typescript-next"
+			]
+		}
+	},
+	"workspaceFolder": "/usr/projects/jazzofcourse-webapp",
+	"workspaceMount": "source=${localWorkspaceFolder},target=/usr/projects/jazzofcourse-webapp,type=bind",
+	"mounts": [
+		"source=node_modules,target=${containerWorkspaceFolder}/node_modules,type=volume"
+	], 
+	"containerEnv": {
+		"NODE_ENV": "development"
+	}
+}
