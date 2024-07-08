@@ -1,5 +1,5 @@
 import { style } from '@vanilla-extract/css'
-import '../global.css'
+import '../styles/global.css'
 
 export const BgDark = style({
     backgroundColor: '#1a1a1a',
