@@ -4,6 +4,11 @@ on:
   push:
     branches:
       - main
+    paths-ignore:
+      - '.devcontainer/**'
+      - 'README.md'
+      - '.vscode/**'
+      - 'branding/**'
   pull_request:
     types: [opened, synchronize, reopened, closed]
     branches:
