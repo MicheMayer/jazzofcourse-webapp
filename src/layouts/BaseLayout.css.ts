@@ -1,9 +1,10 @@
-import { style } from '@vanilla-extract/css'
-import '../styles/global.css'
+import { style } from '@vanilla-extract/css';
+import { vars } from '../themes/defaultTheme.css.ts';
 
-export const BgDark = style({
-    backgroundColor: '#1a1a1a',
-})
+export const color = style({
+	backgroundColor: vars.color.bgDark,
+	color: vars.color.textLight,
+});
 
 export const MakeItWide = style({
     display: 'flex',
