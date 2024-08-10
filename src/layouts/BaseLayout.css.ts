@@ -1,9 +1,9 @@
 import { style } from '@vanilla-extract/css';
-import { vars } from '../themes/defaultTheme.css.ts';
+import { vars } from '../styles/themes/defaultTheme.css.ts';
 
 export const color = style({
-	backgroundColor: vars.color.bgDark,
-	color: vars.color.textLight,
+	backgroundColor: vars.colors.primaryOneDefault,
+	color: vars.colors.textLight,
 });
 
 export const MakeItWide = style({
