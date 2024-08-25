@@ -4,8 +4,6 @@
  *
  * Values are provides in rem for better a11y and calculated on browsers default
  * font-size of 16px. The keys correspond to the px value for easier lookup.
- *
- * @see http://link-to-figma
  */
 export const spaces = {
     none: '0px', // 0px

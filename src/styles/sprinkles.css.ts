@@ -1,13 +1,7 @@
 import { createSprinkles, defineProperties } from '@vanilla-extract/sprinkles'
-import type { Breakpoint } from './properties/breakpoints.property'
-import { breakpoints } from './properties/breakpoints.property'
-import { spaces } from './properties/spaces.property'
-import { typographyContract } from './contracts/typography.contract.css'
-import { fontSizeContract } from './contracts/font-size.contract.css'
-import { maxWidths } from './properties/max-widths.property'
-import { colors } from './properties/colors.property'
-import { shadows } from './properties/shadows.property'
-import { fontWeights } from './properties/font-weights.property'
+import type { Breakpoint } from '@styles/properties/breakpoints.property'
+import { breakpoints } from '@styles/properties/breakpoints.property'
+import { vars } from '@styles/vars.css'
 
 interface ResponsiveConditions {
   /** Breakpoints and their corresponding media queries */
@@ -71,11 +65,11 @@ export const responsiveProperties = defineProperties({
      *
      * @see `css/typography.css.ts
      */
-    fontSize: { ...fontSizeContract, inherit: 'inherit' },
+    fontSize: { ...vars.typography.fontSizes, inherit: 'inherit' },
     /** Gap between flex elements (set x and y-axis equally). Can be set responsively. */
-    gap: spaces,
+    gap: vars.spaces,
     /** Gap between flex elements in the y-axis. Can be set responsively. */
-    rowGap: spaces,
+    rowGap: vars.spaces,
     /** Height of an element. Can be set responsively. */
     height: {
       full: '100%',
@@ -91,23 +85,23 @@ export const responsiveProperties = defineProperties({
       'stretch',
     ],
     /** Margin bottom of an element. Can be set responsively. */
-    marginBottom: spaces,
+    marginBottom: vars.spaces,
     /** Margin left of an element. Can be set responsively. */
-    marginLeft: spaces,
+    marginLeft: vars.spaces,
     /** Margin right of an element. Can be set responsively. */
-    marginRight: spaces,
+    marginRight: vars.spaces,
     /** Margin top of an element. Can be set responsively. */
-    marginTop: spaces,
+    marginTop: vars.spaces,
     /** Maximal width an element can allocated. Can be set responsively. */
-    maxWidth: maxWidths,
+    maxWidth: vars.maxWidths,
     /** Padding bottom of an element. Can be set responsively. */
-    paddingBottom: spaces,
+    paddingBottom: vars.spaces,
     /** Padding left of an element. Can be set responsively. */
-    paddingLeft: spaces,
+    paddingLeft: vars.spaces,
     /** Padding right of an element. Can be set responsively. */
-    paddingRight: spaces,
+    paddingRight: vars.spaces,
     /** Padding top of an element. Can be set responsively. */
-    paddingTop: spaces,
+    paddingTop: vars.spaces,
     /** Positioning of an element. Can be set responsively. */
     position: ['absolute', 'relative', 'fixed'],
     /** Text alignment. Can be set responsively. */
@@ -155,11 +149,11 @@ const hoverableProperties = defineProperties({
   defaultCondition: 'default',
   properties: {
     /** Text color of an element (can be set hoverable) */
-    color: colors,
+    color: vars.colors,
     /** Background color of an element (can be set hoverable) */
-    backgroundColor: colors,
+    backgroundColor: vars.colors,
     /** Box shadow of an element (can be set hoverable) */
-    boxShadow: shadows,
+    boxShadow: vars.shadows,
   },
 })
 
@@ -167,11 +161,11 @@ const hoverableProperties = defineProperties({
 const remainingProperties = defineProperties({
   properties: {
     /** Font weight of an element */
-    fontWeight: fontWeights,
+    fontWeight: vars.typography.fontWeights,
     /** Font family of an element */
     fontFamily: {
-      primary: typographyContract.primaryFontFamily,
-      secondary: typographyContract.secondaryFontFamily,
+      primary: vars.typography.fonts.primaryFontFamily,
+      secondary: vars.typography.fonts.secondaryFontFamily,
     },
   },
 })

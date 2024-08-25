@@ -1,5 +1,5 @@
 import { tint, shade } from 'polished'
-import type { ThemeColor } from '../contracts/color.contract.css'
+import type { ThemeColor } from '@styles/contracts/color.contract.css'
 import type { TintsAndShades } from '@models/tints-and-shades.model'
 
 type ColorValues<ColorName extends string> = {

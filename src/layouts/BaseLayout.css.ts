@@ -1,19 +1,19 @@
 import { style } from '@vanilla-extract/css';
-import { vars } from '../styles/themes/defaultTheme.css.ts';
+import styles from '@styles/.';
 
 export const color = style({
-	backgroundColor: vars.colors.primaryOneDefault,
-	color: vars.colors.textLight,
+	backgroundColor: styles.vars.colors.primaryOneDefault,
+	color: styles.vars.colors.textLight,
 });
 
-export const MakeItWide = style({
+export const makeItWide = style({
     display: 'flex',
     flexDirection: 'column',
     flexGrow: 1,
     minHeight: '100vh',
 })
 
-export const SpreadItOut = style({
+export const spreadItOut = style({
     display: 'flex',
     flexDirection: 'row',
     flexGrow: 1,

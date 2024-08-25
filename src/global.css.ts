@@ -1,42 +1,13 @@
-import { globalStyle } from '@vanilla-extract/css'
+/**
+ * This file imports files that are non component specific and are needed for
+ * base styling like providing font-faces and adding non-theme specific variables.
+ */ 
 
-const parentElements = ['canvas', 'iframe', 'img', 'svg', 'video']
-const childElements = [
-  'svg *',
-  'symbol *', // Mozilla Firefox Bug
-]
+/* CSS Reset */
+import '@styles/global/reset.css'
 
-globalStyle('*, *::before, *::after', {
-  boxSizing: 'border-box',
-})
+/* Import font faces */
+import '@styles/global/font-faces.css'
 
-globalStyle('*', {
-  margin: 0,
-})
-
-globalStyle('body', {
-  lineHeight: 1.5,
-  WebkitFontSmoothing: 'antialiased',
-})
-
-globalStyle('img, picture, video, canvas, svg', {
-  display: 'block',
-  maxWidth: '100%',
-})
-
-globalStyle('input, button, textarea, select', {
-  font: 'inherit',
-})
-
-globalStyle('p, h1, h2, h3, h4, h5, h6', {
-  overflowWrap: 'break-word',
-})
-
-globalStyle(`*:not(${[...parentElements, ...childElements].join()})`, {
-  all: 'unset',
-  display: 'revert',
-})
-
-globalStyle('#root, #__next', {
-  isolation: 'isolate',
-})
+/* Setup responsive font sizes */
+import '@styles/global/font-sizes.css'

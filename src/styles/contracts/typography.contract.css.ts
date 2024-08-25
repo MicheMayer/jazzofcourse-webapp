@@ -1,9 +1,14 @@
+import type { FontFamily } from '@styles/properties/font-faces.property'
 import { createThemeContract } from '@vanilla-extract/css'
 
-const propeties = {
-    primaryFontFamily: '',
-    secondaryFontFamily: '',
-}
+export type TypographyContract = {
+    primaryFontFamily: FontFamily,
+    secondaryFontFamily: FontFamily,
+};
 
-export type TypographyContract = typeof propeties;
-export const typographyContract = createThemeContract(propeties)
+const properties = {
+    primaryFontFamily: 'Bookman Old Style',
+    secondaryFontFamily: 'Harlow Solid',
+} as const satisfies TypographyContract;
+
+export const typographyContract = createThemeContract(properties)

@@ -1,10 +1,11 @@
 import { createTheme } from '@vanilla-extract/css'
-import { colors as globalColors } from '../properties/colors.property'
-import { createTintAndShades } from '../properties/colors.property'
-import type { ColorContract } from '../contracts/color.contract.css'
-import { colorContract } from '../contracts/color.contract.css'
-import type { TypographyContract } from '../contracts/typography.contract.css'
-import { typographyContract } from '../contracts/typography.contract.css'
+import { colors as globalColors } from '@styles/properties/colors.property'
+import { createTintAndShades } from '@styles/properties/colors.property'
+import type { ColorContract } from '@styles/contracts/color.contract.css'
+import { colorContract } from '@styles/contracts/color.contract.css'
+import type { TypographyContract } from '@styles/contracts/typography.contract.css'
+import { typographyContract } from '@styles/contracts/typography.contract.css'
+import type { FontFamily } from '@styles/properties/font-faces.property'
 
 /**
  * Theme exclusive colors
@@ -57,8 +58,8 @@ export const colorProperties = {
 } satisfies ColorContract;
 
 export const typographyProperties = {
-  primaryFontFamily: 'Bookman Old Style Bold Italic',
-  secondaryFontFamily: 'Harlow Solid Italic',
+  primaryFontFamily: 'Bookman Old Style',
+  secondaryFontFamily: 'Harlow Solid',
 } satisfies TypographyContract;
 
 export const [themeClass, vars] = createTheme(
