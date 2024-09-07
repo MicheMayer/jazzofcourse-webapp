@@ -1,10 +1,10 @@
-import { style } from '@vanilla-extract/css';
-import styles from '@styles/.';
+import { style } from '@vanilla-extract/css'
+import { vars } from '@styles'
 
 export const color = style({
-	backgroundColor: styles.vars.colors.primaryOneDefault,
-	color: styles.vars.colors.textLight,
-});
+    backgroundColor: vars.colors.primaryOneDefault,
+    color: vars.colors.textLight,
+})
 
 export const makeItWide = style({
     display: 'flex',

@@ -12,11 +12,14 @@ globalStyle('*, *::before, *::after', {
 
 globalStyle('*', {
   margin: 0,
+  padding: 0,
+  font: 'inherit',
 })
 
 globalStyle('body', {
   lineHeight: 1.5,
   WebkitFontSmoothing: 'antialiased',
+  minHeight: '100svh',
 })
 
 globalStyle('img, picture, video, canvas, svg', {

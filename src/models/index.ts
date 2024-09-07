@@ -1,1 +1,1 @@
-export * from './size-variant.model';
+export type * from '@models/default-component-props';

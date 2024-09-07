@@ -1,8 +1,24 @@
 ---
-interface Props {
-    
+import { sprinkles } from '@styles'
+import type { DefaultComponentProps } from '@models'
+import type { MaxWidth } from '@styles/properties/max-widths.property'
+
+interface Props extends DefaultComponentProps {
+    maxWidth?: MaxWidth;
 }
+
+const {
+    id,
+    classNames,
+    maxWidth = 'lg',
+} = Astro.props
+
+const containerStyles = sprinkles({
+    width: 'auto',
+    marginX: 'auto',
+    maxWidth: maxWidth,
+});
 ---
-<div>
+<div id={id} class:list={[containerStyles, classNames]}>
     <slot />
 </div>
