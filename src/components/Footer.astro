@@ -1,12 +1,14 @@
 ---
+import { BAND_NAME } from "src/consts"
+
 const today = new Date();
 ---
 
 <footer>
-	&copy; {today.getFullYear()} Jazz of Course. All rights reserved.
+	&copy; {today.getFullYear()} {BAND_NAME}. All rights reserved.
 	<div class="social-links">
 		<a href="https://m.webtoo.ls/@astro" target="_blank">
-			<span class="sr-only">Follow Astro on Mastodon</span>
+			<span class="sr-only">Follow {BAND_NAME} on Mastodon</span>
 			<svg
 				viewBox="0 0 16 16"
 				aria-hidden="true"
@@ -20,7 +22,7 @@ const today = new Date();
 			>
 		</a>
 		<a href="https://twitter.com/astrodotbuild" target="_blank">
-			<span class="sr-only">Follow Astro on Twitter</span>
+			<span class="sr-only">Follow {BAND_NAME} on Twitter</span>
 			<svg viewBox="0 0 16 16" aria-hidden="true" width="32" height="32" astro-icon="social/twitter"
 				><path
 					fill="currentColor"
@@ -29,7 +31,7 @@ const today = new Date();
 			>
 		</a>
 		<a href="https://github.com/withastro/astro" target="_blank">
-			<span class="sr-only">Go to Astro's GitHub repo</span>
+			<span class="sr-only">Go to {BAND_NAME}'s GitHub repo</span>
 			<svg viewBox="0 0 16 16" aria-hidden="true" width="32" height="32" astro-icon="social/github"
 				><path
 					fill="currentColor"
