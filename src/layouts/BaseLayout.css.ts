@@ -3,7 +3,7 @@ import { vars } from '@styles'
 
 export const color = style({
     backgroundColor: vars.colors.primaryOneDefault,
-    color: vars.colors.textLight,
+    color: vars.colors.textDefault,
 })
 
 export const makeItWide = style({

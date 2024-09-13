@@ -1,10 +1,12 @@
 ---
-import { Image } from 'astro:assets'
+import { fullscreen, typography } from "./IntroScreen.css"
 import Container from "@components/layout/Container.astro"
-import backgroundImage from "@assets/images/blog-placeholder-1.jpg" 
+import backgroundImage from "@assets/images/blog-placeholder-2.jpg" 
+import BackgroundImageParallax from '@components/layout/BackgroundImageParallax.astro'
 
 ---
-
-<Image src={backgroundImage} alt="Intro background" />
-<Container>
-</Container>
+<BackgroundImageParallax classNames={fullscreen} image={backgroundImage} alt="Intro background image">
+    <Container classNames={typography}>
+        Hello, World!
+    </Container>
+</BackgroundImageParallax>

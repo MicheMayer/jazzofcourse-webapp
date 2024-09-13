@@ -74,6 +74,7 @@ export const responsiveProperties = defineProperties({
     height: {
       full: '100%',
       auto: 'auto',
+      screen: '100vh',
     },
     /** Space distribution of a flex container. Can be set responsively. */
     justifyContent: [

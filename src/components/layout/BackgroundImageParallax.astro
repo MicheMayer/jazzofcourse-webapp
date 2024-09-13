@@ -1,6 +1,7 @@
 ---
 import type { DefaultComponentProps } from '@models'
-import { 
+import {
+  wrapper,
   fixedBackgroundContainer,
   parallaxContainer,
   fallbackContainer,
@@ -9,25 +10,25 @@ import {
 import { Image } from 'astro:assets'
 
 interface Props extends DefaultComponentProps {
-      imageUrl: ImageMetadata | Promise<{
-        default: ImageMetadata
-      }>,
-      alt: string,
+  image: ImageMetadata | Promise<{
+    default: ImageMetadata
+  }>,
+  alt: string,
 }
 
 const {
   id,
   classNames,
-  imageUrl,
+  image,
   alt,
 } = Astro.props
 ---
 
-<div id={id} class:list={[classNames]}>
+<div id={id} class:list={[wrapper, classNames]}>
   <div class={fixedBackgroundContainer}>
     <div class:list={[parallaxContainer, fallbackContainer]}>
       <Image
-        src={imageUrl}
+        src={image}
         class:list={[backgroundImage]}
         alt={alt}
       />

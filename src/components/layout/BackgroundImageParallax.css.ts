@@ -1,5 +1,11 @@
 import { style } from "@vanilla-extract/css"
 
+export const wrapper = style({
+    position: 'relative',
+    width: 'auto',
+    minHeight: 'min-content',
+})
+
 export const fixedBackgroundContainer = style({
     position: 'absolute',
     top: 0,
@@ -33,6 +39,7 @@ export const backgroundImage = style({
     position: 'sticky',
     top: 0,
     width: '100%',
+    minHeight: '100vh',
     objectFit: 'cover',
 })
 
