@@ -3,7 +3,7 @@ import type { ClassNames } from '@models/classnames.model'
 /**
  * Common properties every component should support
  */
-export interface DefaultComponentProps extends ClassNames {
+export interface DefaultComponentProps extends ClassNames /* AstroBuiltinAttributes */ {
     /** HTML id property */
     id?: string
   }
