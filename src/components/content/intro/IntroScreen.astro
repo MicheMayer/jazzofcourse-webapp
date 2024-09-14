@@ -6,8 +6,8 @@ import BackgroundImageParallax from '@components/layout/BackgroundImageParallax.
 import Heading from "@components/typography/Heading.astro"
 
 ---
-<BackgroundImageParallax classNames={fullscreen} image={backgroundImage} alt="Intro background image">
-    <Container classNames={typography}>
+<BackgroundImageParallax image={backgroundImage} alt="Intro background image">
+    <Container classNames={[ fullscreen, typography ]}>
         <Heading>Hello, World!</Heading>
     </Container>
 </BackgroundImageParallax>

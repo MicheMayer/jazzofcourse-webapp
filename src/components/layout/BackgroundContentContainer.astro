@@ -1,0 +1,38 @@
+---
+import type { DefaultComponentProps } from "@models"
+import {
+  wrapper,
+  fixedBackgroundContainer,
+  parallaxContainer,
+  fallbackContainer,
+  parallaxContent,
+  fixedContent,
+  foregroundContainer,
+} from "./BackgroundContentContainer.css"
+
+interface Props extends DefaultComponentProps {
+  isParallax?: boolean;
+}
+
+const { 
+    id,
+    classNames,
+    isParallax = false,
+} = Astro.props;
+
+const container = isParallax ? [parallaxContainer, fallbackContainer] : fixedContent;
+const content = isParallax ? parallaxContent : fixedContent;
+---
+
+<div id={id} class:list={[wrapper, classNames]}>
+  <div class={fixedBackgroundContainer}>
+    <div class:list={container}>
+      <div class={content}>
+        <slot name="background" />
+      </div>
+    </div>
+  </div>
+  <div class={foregroundContainer}>
+    <slot />
+  </div>
+</div>
