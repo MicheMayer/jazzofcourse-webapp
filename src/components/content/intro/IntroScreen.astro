@@ -1,13 +1,49 @@
 ---
-import { fullscreen, typography } from "./IntroScreen.css"
+import { fullscreen, typography, split, backgroundVideo, heading } from "./IntroScreen.css"
 import Container from "@components/layout/Container.astro"
 import backgroundImage from "@assets/images/blog-placeholder-2.jpg" 
-import BackgroundImageParallax from '@components/layout/BackgroundImageParallax.astro'
+import BackgroundContentContainer from "@components/layout/BackgroundContentContainer.astro"
 import Heading from "@components/typography/Heading.astro"
+import type { DefaultComponentProps } from "@models"
 
+interface Props extends DefaultComponentProps {
+}
+
+const videoSource = "/media/promo.mov"
+
+const { 
+    id,
+    classNames,
+} = Astro.props;
 ---
-<BackgroundImageParallax image={backgroundImage} alt="Intro background image">
-    <Container classNames={[ fullscreen, typography ]}>
-        <Heading>Hello, World!</Heading>
-    </Container>
-</BackgroundImageParallax>
+<BackgroundContentContainer id={id} class:list={[classNames]} isParallax={false}>
+    <div slot="background">
+        <video class={backgroundVideo} width="1920" height="1080" autoplay muted loop>
+            <source src={videoSource} type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+    <div class:list={[ fullscreen, typography ]}>
+        <Heading level="1" classNames={[heading]}>Jazz of Course</Heading>
+        <Container classNames={[ split ]}>
+            <div>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                    Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+                    Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                </p>
+            </div>
+            <div>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                    Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+                    Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                </p>
+            </div>
+        </Container>
+    </div>
+</BackgroundContentContainer>

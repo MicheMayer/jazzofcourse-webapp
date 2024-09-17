@@ -1,0 +1,15 @@
+---
+import type { DefaultComponentProps } from '@models'
+
+interface Props extends DefaultComponentProps {
+}
+
+const {
+  id,
+  classNames,
+} = Astro.props
+---
+
+<div id={id} class:list={[classNames]}>
+
+</div>
