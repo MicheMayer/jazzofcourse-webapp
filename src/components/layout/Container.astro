@@ -10,7 +10,7 @@ interface Props extends DefaultComponentProps {
 const {
     id,
     classNames,
-    maxWidth = 'lg',
+    maxWidth = 'xl',
 } = Astro.props
 
 const containerStyles = sprinkles({
@@ -20,6 +20,6 @@ const containerStyles = sprinkles({
 })
 ---
 
-<div id={id} class:list={[containerStyles, classNames]}>
+<div id={id} class:list={[containerStyles, classNames]} container-type: "inline-size">
     <slot />
 </div>

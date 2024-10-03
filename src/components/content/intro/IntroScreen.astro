@@ -1,49 +1,47 @@
 ---
-import { fullscreen, typography, split, backgroundVideo, heading } from "./IntroScreen.css"
-import Container from "@components/layout/Container.astro"
-import backgroundImage from "@assets/images/blog-placeholder-2.jpg" 
-import BackgroundContentContainer from "@components/layout/BackgroundContentContainer.astro"
-import Heading from "@components/typography/Heading.astro"
-import type { DefaultComponentProps } from "@models"
+import * as styles from './IntroScreen.css'
+import Container from '@components/layout/Container.astro'
+import fallbackImage from '@assets/images/blog-placeholder-2.jpg'
+import BackgroundContentContainer from '@components/layout/BackgroundContentContainer.astro'
+import type { DefaultComponentProps } from '@models'
+import VideoSampleCard from './partials/VideoSampleCard.astro'
+import { Image } from 'astro:assets'
+import EventQuickLink from './partials/EventQuickLink.astro'
+import Logo from '@components/BandLogo.astro'
+import background from '@assets/images/background.jpg'
 
-interface Props extends DefaultComponentProps {
-}
+interface Props extends DefaultComponentProps {}
 
-const videoSource = "/media/promo.mov"
+const videoSource = '/media/promo.mov'
 
-const { 
-    id,
-    classNames,
-} = Astro.props;
+const { id, classNames } = Astro.props
 ---
-<BackgroundContentContainer id={id} class:list={[classNames]} isParallax={false}>
-    <div slot="background">
-        <video class={backgroundVideo} width="1920" height="1080" autoplay muted loop>
-            <source src={videoSource} type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
-    </div>
-    <div class:list={[ fullscreen, typography ]}>
-        <Heading level="1" classNames={[heading]}>Jazz of Course</Heading>
-        <Container classNames={[ split ]}>
-            <div>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                    Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
-                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
-                    Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                </p>
-            </div>
-            <div>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                    Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
-                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
-                    Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                </p>
-            </div>
-        </Container>
-    </div>
+
+<BackgroundContentContainer
+  id={id}
+  class:list={[classNames]}
+  isParallax={false}
+>
+  <video
+    slot="background"
+    class={styles.backgroundVideo}
+    width="1920"
+    height="1080"
+    autoplay
+    muted
+    loop
+  >
+    <source src={videoSource} type="video/mp4" />
+    <Image
+      src={fallbackImage}
+      alt="Your browser does not support video playback."
+    />
+  </video>
+  <div class:list={[styles.fullscreen, styles.typography]}>
+    <Logo classNames={styles.bandLogo} form="full" color="white" />
+    <Container classNames={[styles.introContent]}>
+      <VideoSampleCard videoUrl="https://youtube.com" />
+      <EventQuickLink />
+    </Container>
+  </div>
 </BackgroundContentContainer>

@@ -44,10 +44,10 @@ export const parallaxContent = style({
 })
 
 export const fixedContent = style({
-    position: 'absolute',
+    position: 'relative',
     top: 0,
     width: '100%',
-    minHeight: '100vh',
+    height: '100%',
 })
 
 export const foregroundContainer = style({

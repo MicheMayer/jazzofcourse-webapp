@@ -1,0 +1,20 @@
+---
+import type { DefaultComponentProps } from '@models/default-component-props'
+import { mask, colors } from './BandLogo.css'
+import type { Form } from './BandLogo.css'
+import { Image } from 'astro:assets'
+
+export type Color = keyof typeof colors
+
+interface Props extends DefaultComponentProps {
+  form: Form
+  color: Color
+  imageMask?: ImageMetadata
+}
+
+const { id, classNames, form, color, imageMask } = Astro.props
+---
+
+<div id={id} class:list={[classNames, mask({ form, color })]}>
+  {imageMask && <Image src={imageMask} alt="Jazz of course" />}
+</div>

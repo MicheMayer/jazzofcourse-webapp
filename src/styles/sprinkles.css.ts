@@ -76,6 +76,11 @@ export const responsiveProperties = defineProperties({
       auto: 'auto',
       screen: '100vh',
     },
+    /** Mininum height of an element. Can be set responsivly */
+    minHeight: {
+      full: '100%',
+      screen: '100vh',
+    },
     /** Space distribution of a flex container. Can be set responsively. */
     justifyContent: [
       'center',

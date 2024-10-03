@@ -1,35 +1,43 @@
 import { sprinkles, vars } from '@styles'
-import { style } from '@vanilla-extract/css'
+import { style, createContainer } from '@vanilla-extract/css'
 
 export const fullscreen = sprinkles({
-    height: 'screen',
+    display: 'flex',
+    flexDirection: 'column',
+    minHeight: 'screen',
 })
 
 export const backgroundVideo = style({
     position: 'relative',
     width: '100%',
-    height: '100vh',
+    height: '100%',
     objectFit: 'cover',
-    filter: 'brightness(0.3)',
+    filter: 'brightness(0.3) blur(2px)',
 })
 
 export const typography = style({
     color: vars.colors.white,
+    containerName: createContainer(),
+    containerType: 'inline-size',
 })
 
-export const split = sprinkles({
-    display: 'flex',
-    flexDirection: { xs: 'column', md: 'row' },
-    gap: { xs: 'lg', md: '2xl' },
-})
-
-export const heading = style({
+export const introContent = style({
     width: '100%',
-    textAlign: 'center',
-    marginTop: '5rem',
-    marginBottom: '5rem',
-    fontSize: '6rem',
-    fontWeight: 700,
-    lineHeight: 1.2,
-    fontFamily: vars.typography.fonts.secondaryFontFamily,
+    display: 'grid',
+    columnGap: 'initial',
+    alignItems: 'flex-end',
+    gridTemplateColumns: 'auto',
+    '@container': {
+        '(width > 768px)': {
+            gridTemplateColumns: '1fr 1fr'
+        }
+    }
+})
+
+export const bandLogo = style({
+    width: '50%',
+    marginTop: '5em',
+    marginBottom: '5em',
+    marginLeft: 'auto',
+    marginRight: 'auto',
 })
