@@ -3,11 +3,13 @@ import mdx from '@astrojs/mdx';
 import{ vanillaExtractPlugin }from'@vanilla-extract/vite-plugin';
 import sitemap from '@astrojs/sitemap';
 
-// https://astro.build/config
 export default defineConfig({
-	site: 'https://example.com',
+	site: 'https://jazz-of-course.de',
 	vite:{
-		plugins:[vanillaExtractPlugin()],
+		plugins:[
+			vanillaExtractPlugin({
+			})
+		],
 	},
 	integrations: [mdx(), sitemap()],
 	server: {

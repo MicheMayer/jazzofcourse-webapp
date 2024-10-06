@@ -10,19 +10,19 @@
     "test": "vitest"
   },
   "dependencies": {
-    "@astrojs/check": "^0.7.0",
-    "@astrojs/mdx": "^3.1.2",
+    "@astrojs/check": "^0.9.4",
+    "@astrojs/mdx": "^3.1.7",
     "@astrojs/rss": "^4.0.7",
-    "@astrojs/sitemap": "^3.1.6",
-    "@vanilla-extract/css": "^1.15.3",
+    "@astrojs/sitemap": "^3.2.0",
+    "@vanilla-extract/css": "^1.16.0",
     "@vanilla-extract/recipes": "^0.5.5",
-    "@vanilla-extract/sprinkles": "^1.6.2",
-    "astro": "^4.11.5",
+    "@vanilla-extract/sprinkles": "^1.6.3",
+    "astro": "^4.15.11",
     "polished": "^4.3.1",
-    "typescript": "^5.5.3"
+    "typescript": "^5.6.2"
   },
   "devDependencies": {
-    "@vanilla-extract/vite-plugin": "^4.0.13",
-    "vitest": "^2.0.3"
+    "@vanilla-extract/vite-plugin": "^4.0.16",
+    "vitest": "^2.1.2"
   }
 }

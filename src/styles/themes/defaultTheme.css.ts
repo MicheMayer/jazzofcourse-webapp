@@ -5,7 +5,6 @@ import type { ColorContract } from '@styles/contracts/color.contract.css'
 import { colorContract } from '@styles/contracts/color.contract.css'
 import type { TypographyContract } from '@styles/contracts/typography.contract.css'
 import { typographyContract } from '@styles/contracts/typography.contract.css'
-import type { FontFamily } from '@styles/properties/font-faces.property'
 
 /**
  * Theme exclusive colors
