@@ -27,6 +27,7 @@ export const playButton = style([
         padding: 'sm',
         fontWeight: 'bold',
         fontSize: 'lg',
+        backgroundColor: { hover: 'black' },
     }),
 ])
 

@@ -15,6 +15,6 @@ interface Props extends DefaultComponentProps {
 const { id, classNames, form, color, imageMask } = Astro.props
 ---
 
-<div id={id} class:list={[classNames, styles.mask({ form, color })]}>
+<div id={id} class:list={[styles.mask({ form, color }), classNames]}>
   {imageMask && <Image src={imageMask} alt="Jazz of course" />}
 </div>

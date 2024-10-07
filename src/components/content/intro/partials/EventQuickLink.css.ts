@@ -21,9 +21,10 @@ export const link = style([
         borderColor: vars.colors.white,
     },
     sprinkles({
-       marginX: 'auto',
-       fontSize: 'lg',
-       fontWeight: 'bold',
-       padding: 'sm',
-   })
+        marginX: 'auto',
+        fontSize: 'lg',
+        fontWeight: 'bold',
+        padding: 'sm',
+        backgroundColor: { hover: 'black' },
+    })
 ])

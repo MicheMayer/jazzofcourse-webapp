@@ -1,0 +1,20 @@
+---
+import { SITE_TITLE, SITE_DESCRIPTION } from 'src/consts'
+import BaseHead from '@components/BaseHead.astro'
+import BusinessCard from '@components/content/business-card/BusinessCard.astro'
+import Container from '@components/layout/Container.astro'
+---
+
+<html lang="de">
+  <head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+  </head>
+
+  <body>
+    <main>
+      <Container>
+        <BusinessCard id="lets-see-paul-allens-card" />
+      </Container>
+    </main>
+  </body>
+</html>
