@@ -3,7 +3,7 @@ import BaseHead from '@components/BaseHead.astro'
 import Header from '@components/Header.astro'
 import Footer from '@components/Footer.astro'
 import { themeClass } from '@styles/themes/defaultTheme.css'
-import { typography, colors } from './BaseLayout.css.ts'
+import * as styles from './BaseLayout.css.ts'
 
 interface Props {
 	title: string;
@@ -19,7 +19,7 @@ const { title, description, image } = Astro.props;
 		<BaseHead title={title} description={description} image={image} />
 	</head>
 
-	<body class:list={[themeClass, typography, colors]}>
+	<body class:list={[themeClass, styles.typography, styles.colors]}>
 		<Header />
 		<main>
 			<slot />

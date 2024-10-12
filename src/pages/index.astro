@@ -3,10 +3,12 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "src/consts"
 import BaseLayout from "@layouts/BaseLayout.astro"
 import Container from "@components/layout/Container.astro"
 import IntroScreen from "@components/content/intro/IntroScreen.astro"
+import EventScreen from '@components/content/events/EventScreen.astro'
 ---
 
 <BaseLayout title={SITE_TITLE} description={SITE_DESCRIPTION}>
   <IntroScreen id="home" />
+  <EventScreen id="events" />
   <Container>
     <p>
       Schön, dass Sie uns gefunden haben, egal, was Sie auch gesucht haben mögen!<br/>

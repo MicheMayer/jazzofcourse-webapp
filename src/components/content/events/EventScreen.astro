@@ -1,0 +1,27 @@
+---
+import Container from '@components/layout/Container.astro'
+import * as styles from './EventScreen.css'
+import Heading from '@components/typography/Heading.astro'
+import type { DefaultComponentProps } from '@models'
+import { getCollection } from 'astro:content'
+import EventItem from './partials/EventItem.astro'
+
+interface Props extends DefaultComponentProps {}
+
+const { id, classNames } = Astro.props
+const allEvents = await getCollection('events')
+  .then((events) => events.sort((a, b) => b.data.date.getTime() - a.data.date.getTime()))
+---
+
+<div id={id} class:list={[styles.eventScreen, classNames]}>
+  <Container>
+    <Heading level="2">Unsere nächsten Auftritte</Heading>
+    <ul>
+      {
+        allEvents.map((event) => (
+          <EventItem event={event.data} />
+        ))
+      }
+    </ul>
+  </Container>
+</div>

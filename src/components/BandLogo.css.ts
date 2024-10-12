@@ -1,21 +1,20 @@
 import { vars } from '@styles'
 import type { Color } from '@styles'
 import { recipe } from '@vanilla-extract/recipes'
+import { getImage } from 'astro:assets'
+import j from '@assets/logos/band/j.svg'
+import jazz from '@assets/logos/band/jazz.svg'
+import instruments from '@assets/logos/band/instruments.svg'
+import full from '@assets/logos/band/full.svg'
 
 const forms = {
-    j: {
-        maskImage: `url(/logos/band/j.svg)`,
-    },
-    jazz: {
-        maskImage: `url(/logos/band/jazz.svg)`,
-    },
-    instruments: {
-        maskImage: `url(/logos/band/instruments.svg)`,
-    },
-    full: {
-        maskImage: `url(/logos/band/full.svg)`,
-    },
+    'j': j,
+    'jazz': jazz,
+    'instruments': instruments,
+    'full': full,
 } as const
+
+export type Form = keyof typeof forms
 
 export const colors = Object.entries(vars.colors)
     .reduce(
@@ -26,7 +25,20 @@ export const colors = Object.entries(vars.colors)
         {} as Record<Color, { backgroundColor: string }>
     )
 
-export type Form = keyof typeof forms
+const importedForms = await Object.entries(forms)
+    .reduce(
+        async (previousPromise, [form, imageMetaData]) => {
+            let acc = await previousPromise
+            const image = await getImage({src: imageMetaData, format: 'svg'})
+            
+            return {
+            ...acc,
+            [form]: {
+                maskImage: `url(${image.src})`,
+            },
+        }},
+        Promise.resolve({} as Record<Form, { maskImage: string }>)
+    )
 
 export const mask = recipe({
     base: {
@@ -35,7 +47,7 @@ export const mask = recipe({
         maskPosition: 'center',
     },
     variants: {
-        form: { ...forms },
+        form: { ...importedForms },
         color: { ...colors }
     }
 })

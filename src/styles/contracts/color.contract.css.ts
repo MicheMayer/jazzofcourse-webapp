@@ -5,14 +5,6 @@ const properties = {
     primaryOneLight: '',
     primaryOneDark: '',
 
-    primaryTwoDefault: '',
-    primaryTwoLight: '',
-    primaryTwoDark: '',
-
-    primaryThreeDefault: '',
-    primaryThreeLight: '',
-    primaryThreeDark: '',
-
     secondaryDefault: '',
     secondaryLight: '',
     secondaryDark: '',
