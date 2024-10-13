@@ -1,5 +1,5 @@
 import { createTheme } from '@vanilla-extract/css'
-import { colors as globalColors } from '@styles/properties/colors.property'
+// import { colors as globalColors } from '@styles/properties/colors.property'
 import { createTintAndShades } from '@styles/properties/colors.property'
 import type { ColorContract } from '@styles/contracts/color.contract.css'
 import { colorContract } from '@styles/contracts/color.contract.css'

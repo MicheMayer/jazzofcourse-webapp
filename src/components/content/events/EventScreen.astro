@@ -10,7 +10,7 @@ interface Props extends DefaultComponentProps {}
 
 const { id, classNames } = Astro.props
 const allEvents = await getCollection('events')
-  .then((events) => events.sort((a, b) => b.data.date.getTime() - a.data.date.getTime()))
+  .then((events) => events.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf()))
 ---
 
 <div id={id} class:list={[styles.eventScreen, classNames]}>

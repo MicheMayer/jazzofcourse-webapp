@@ -1,5 +1,4 @@
-import { sprinkles, vars } from '@styles'
-import { style } from '@vanilla-extract/css'
+import { sprinkles } from '@styles'
 
 export const eventScreen = sprinkles({
     minHeight: 'screen',

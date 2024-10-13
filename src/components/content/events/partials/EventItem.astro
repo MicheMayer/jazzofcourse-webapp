@@ -3,7 +3,6 @@ import type { DefaultComponentProps } from '@models'
 import type { CollectionEntry } from 'astro:content'
 import { getEntry } from 'astro:content'
 import * as styles from './EventItem.css'
-import { Image } from 'astro:assets'
 import instruments from '@assets/logos/band/instruments.svg'
 
 interface Props extends DefaultComponentProps {
@@ -12,15 +11,15 @@ interface Props extends DefaultComponentProps {
 
 const { event } = Astro.props
 
-var location = event.location && (await getEntry(event.location)).data.name
+var location = event.location?.id && (await getEntry('locations', event.location.id)).data.name
 ---
 
 <div class={styles.eventItem}>
-  <Image src={event.heroImage ?? instruments} alt={event.title} />
+  <img src={event.heroImage?.src ?? instruments.src} alt={event.title} />
   <h3>{event.title}</h3>
   <div>
     {event.description}
   </div>
-  <time>{event.date.toLocaleDateString('de')}</time>
+  <time>{new Date(event.date).toLocaleDateString('de-de')}</time>
   {location && <div>{location}</div>}
 </div>

@@ -1,4 +1,4 @@
-import { sprinkles, vars } from '@styles'
+import { sprinkles } from '@styles'
 import { style } from '@vanilla-extract/css'
 
 export const eventItem = style([
