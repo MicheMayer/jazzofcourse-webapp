@@ -6,24 +6,24 @@ import { themeClass } from '@styles/themes/defaultTheme.css'
 import * as styles from './BaseLayout.css.ts'
 
 interface Props {
-	title: string;
-	description: string;
-	image?: string;
+  title: string
+  description: string
+  image?: string
 }
 
-const { title, description, image } = Astro.props;
+const { title, description, image = '/logos/band/full.svg' } = Astro.props
 ---
 
 <html lang="de">
-	<head>
-		<BaseHead title={title} description={description} image={image} />
-	</head>
+  <head>
+    <BaseHead title={title} description={description} image={image} />
+  </head>
 
-	<body class:list={[themeClass, styles.typography, styles.colors]}>
-		<Header />
-		<main>
-			<slot />
-		</main>
-		<Footer />
-	</body>
+  <body class:list={[themeClass, styles.typography, styles.colors]}>
+    <Header />
+    <main>
+      <slot />
+    </main>
+    <Footer />
+  </body>
 </html>

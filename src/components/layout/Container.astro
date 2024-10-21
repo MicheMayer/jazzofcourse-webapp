@@ -1,25 +1,22 @@
 ---
-import { sprinkles } from '@styles'
+import type { HTMLTag } from 'astro/types'
 import type { DefaultComponentProps } from '@models'
-import type { MaxWidth } from '@styles/properties/max-widths.property'
+import type { MaxWidth } from '@styles'
+import * as styles from './Container.css'
 
 interface Props extends DefaultComponentProps {
+    as? : HTMLTag,
     maxWidth?: MaxWidth;
 }
 
 const {
+    as: HtmlElement = 'div',
+    maxWidth = 'xl',
     id,
     classNames,
-    maxWidth = 'lg',
 } = Astro.props
-
-const containerStyles = sprinkles({
-    width: 'auto',
-    marginX: 'auto',
-    maxWidth: maxWidth,
-})
 ---
 
-<div id={id} class:list={[containerStyles, classNames]} container-type: "inline-size">
+<HtmlElement id={id} class:list={[styles.container({maxWidth}), classNames]}>
     <slot />
-</div>
+</HtmlElement>

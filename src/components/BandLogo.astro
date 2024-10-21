@@ -1,14 +1,13 @@
 ---
 import type { DefaultComponentProps } from '@models/default-component-props'
 import * as styles from './BandLogo.css'
-import type { Form } from './BandLogo.css'
+import type { LogoColor, Form } from './BandLogo.css'
 import { Image } from 'astro:assets'
 
-export type Color = keyof typeof styles.colors
 
 interface Props extends DefaultComponentProps {
   form: Form
-  color: Color
+  color: LogoColor
   imageMask?: ImageMetadata
 }
 

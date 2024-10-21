@@ -1,0 +1,48 @@
+---
+import type { DefaultComponentProps } from '@models'
+import * as styles from './SocialLink.css'
+import youtube from './icons/youtube.svg?raw'
+import facebook from './icons/facebook.svg?raw'
+import instagram from './icons/instagram.svg?raw'
+
+export type SocialType = 'youtube' | 'facebook' | 'instagram'
+
+const socialIcons = {
+  youtube: {
+    icon: youtube,
+    alt: 'Youtube',
+    link: 'https://www.youtube.com/@jazz-of-course',
+  },
+  facebook: {
+    icon: facebook,
+    alt: 'Facebook',
+    link: 'https://www.facebook.com/profile.php?id=61567545085956',
+  },
+  instagram: {
+    icon: instagram,
+    alt: 'Instagram',
+    link: 'https://www.instagram.com/jazzofcourse',
+  },
+} as Record<SocialType, { icon: string; alt: string; link: string }>
+
+interface Props extends DefaultComponentProps {
+  label: string
+  type: SocialType
+}
+
+const { label, type, classNames, id } = Astro.props
+
+const socialObject = socialIcons[type]
+---
+
+<a
+  id={id}
+  class:list={[styles.container, classNames]}
+  href={socialObject.link}
+  target="_blank"
+>
+  <div class:list={styles.icon}>
+    <Fragment set:html={socialObject.icon} alt={socialObject.alt} />
+  </div>
+  <span>{label}</span>
+</a>

@@ -20,6 +20,8 @@ export const colors = Object.entries(vars.colors)
         {} as Record<Color, { backgroundColor: string }>
     )
 
+export type LogoColor = keyof typeof colors
+
 const importedForms = Object.entries(forms)
     .reduce(
         (formDictrionary, [form, imageSrc]) => ({
