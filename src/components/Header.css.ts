@@ -26,9 +26,9 @@ export const logo = style({
 	width: 'fit-content',
 })
 
-export const internalLinks = style(
-	[{
-		flexGrow: 1,
+export const internalLinks = style([
+	{
+	flexGrow: 1,
 	},
 	sprinkles({
 		display: 'flex',
@@ -37,13 +37,13 @@ export const internalLinks = style(
 		justifyContent: 'flex-start',
 		gap: 'lg',
 	})
-	])
+])
 
 export const externalLinks = style([
 	{
 	},
 	sprinkles({
-		display: 'flex',
+		display: { xs: 'none', md: 'flex' },
 		flexDirection: 'row',
 		alignItems: 'center',
 		justifyContent: 'flex-end',

@@ -16,12 +16,10 @@ const allEvents = await getCollection('events')
 <div id={id} class:list={[styles.eventScreen, classNames]}>
   <Container>
     <Heading level="2">Unsere nächsten Auftritte</Heading>
-    <ul>
       {
         allEvents.map((event) => (
           <EventItem event={event.data} />
         ))
       }
-    </ul>
   </Container>
 </div>

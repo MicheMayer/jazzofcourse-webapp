@@ -11,15 +11,19 @@ interface Props extends DefaultComponentProps {
 
 const { event } = Astro.props
 
-var location = event.location?.id && (await getEntry('locations', event.location.id)).data.name
+var location =
+  event.location?.id &&
+  (await getEntry('locations', event.location.id)).data.name
 ---
 
-<div class={styles.eventItem}>
-  <img src={event.heroImage?.src ?? instruments.src} alt={event.title} />
-  <h3>{event.title}</h3>
-  <div>
-    {event.description}
+<div class:list={styles.eventItem}>
+  <img class={styles.heroImage} src={event.heroImage?.src ?? instruments.src} alt={event.title} />
+  <div class={styles.content}>
+    <h3>{event.title}</h3>
+    <div>
+      {event.description}
+    </div>
+    <time>{new Date(event.date).toLocaleDateString('de-de')}</time>
+    {location && <div>{location}</div>}
   </div>
-  <time>{new Date(event.date).toLocaleDateString('de-de')}</time>
-  {location && <div>{location}</div>}
 </div>

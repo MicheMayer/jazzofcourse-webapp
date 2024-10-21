@@ -3,10 +3,10 @@ import type { Color } from '@styles'
 import { recipe } from '@vanilla-extract/recipes'
 
 const forms = {
-    'j': 'logos/band/j.svg',
-    'jazz': 'logos/band/jazz.svg',
-    'instruments': 'logos/band/instruments.svg',
-    'full': 'logos/band/full.svg',
+    'j': '/logos/band/j.svg',
+    'jazz': '/logos/band/jazz.svg',
+    'instruments': '/logos/band/instruments.svg',
+    'full': '/logos/band/full.svg',
 } as const
 
 export type Form = keyof typeof forms
