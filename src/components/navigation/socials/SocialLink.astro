@@ -6,8 +6,9 @@ import youtube from './icons/youtube.svg?raw'
 import facebook from './icons/facebook.svg?raw'
 import instagram from './icons/instagram.svg?raw'
 import qrcode from './icons/qrcode.svg?raw'
+import envelope from './icons/envelope.svg?raw'
 
-export type SocialType = 'youtube' | 'facebook' | 'instagram' | 'qrcode'
+export type SocialType = 'email' | 'youtube' | 'facebook' | 'instagram' | 'qrcode'
 
 const socialIcons = {
   youtube: {
@@ -25,12 +26,19 @@ const socialIcons = {
     alt: 'Instagram',
     link: 'https://www.instagram.com/jazzofcourse',
   },
+  email: {
+    icon: envelope,
+    alt: 'E-Mail',
+    link: 'mailto:info@jazzofcourse.de',
+  },
   qrcode: {
     icon: qrcode,
     alt: 'QR-Code',
     link: '/virtual-business-card/',
   },
 } as Record<SocialType, { icon: string; alt: string; link: string }>
+
+
 
 interface Props extends DefaultComponentProps {
   label: string
