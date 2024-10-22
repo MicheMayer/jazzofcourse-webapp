@@ -15,7 +15,7 @@ const allEvents = await getCollection('events').then((events) =>
 )
 ---
 
-<div id={id} class:list={[styles.eventScreen, classNames]}>
+<section id={id} class:list={[styles.eventScreen, classNames]}>
   <Container>
     <ViewBox>
       <Heading level="2">Unsere nächsten Auftritte</Heading>
@@ -24,4 +24,4 @@ const allEvents = await getCollection('events').then((events) =>
       </div>
     </ViewBox>
   </Container>
-</div>
+</section>

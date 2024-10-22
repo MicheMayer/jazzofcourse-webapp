@@ -4,9 +4,16 @@ import * as styles from './About.css'
 import ImageParallax from '@components/layout/ImageParallax.astro'
 import backgroundImage from '@assets/images/background-instruments.jpg'
 import ViewBox from '@components/layout/ViewBox.astro'
+import type { DefaultComponentProps } from '@models'
+
+interface Props extends DefaultComponentProps {
+}
+
+const { id, classNames } = Astro.props
+
 ---
 
-<div class={styles.container}>
+<section id={id} class:list={[styles.container, classNames]}>
   <ImageParallax
     classNames={styles.spaceImage}
     image={backgroundImage}
