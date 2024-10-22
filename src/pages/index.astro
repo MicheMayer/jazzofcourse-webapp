@@ -1,32 +1,13 @@
 ---
 import { SITE_TITLE, SITE_DESCRIPTION } from 'src/consts'
 import BaseLayout from '@layouts/BaseLayout.astro'
-import Container from '@components/layout/Container.astro'
 import IntroScreen from '@components/content/intro/IntroScreen.astro'
 import EventScreen from '@components/content/events/EventScreen.astro'
+import About from '@components/content/about/About.astro'
 ---
 
 <BaseLayout title={SITE_TITLE} description={SITE_DESCRIPTION}>
   <IntroScreen id="home" />
   <EventScreen id="events" />
-  <Container>
-    <p>
-      Schön, dass Sie uns gefunden haben, egal, was Sie auch gesucht haben
-      mögen!<br />
-      Jazz of course - das ist eine Gruppe von Musikern, die sich gefunden haben,
-      um dieTradition des guten alten Jazz zu pflegen, damit Spaß zu haben und diese
-      Freude an der Musik dem Publikum egal welchen Alters zu vermitteln.
-    </p>
-    <p>
-      In der klassischen Besetzung mit Klavier, Gitarre, Kontrabass, Schlagzeug
-      und Gesang haben wir bekannte Jazz-Standards im Repertoire, aber auch kaum
-      bekannte Nummern, die es nicht weniger wert sind, am Leben gehalten zu
-      werden.
-    </p>
-    <p>
-      Musik, die vorbei am Großhirn unmittelbar in den Bauch und in die Füße
-      geht -ob Sie es wollen, oder nicht.<br />
-      Schauen Sie bei uns rein - wir freuen uns auf Sie!
-    </p>
-  </Container>
+  <About id="about" />
 </BaseLayout>

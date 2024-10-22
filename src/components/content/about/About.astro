@@ -1,0 +1,28 @@
+---
+import Container from '@components/layout/Container.astro'
+import * as styles from './About.css'
+import BackgroundImageParallax from '@components/layout/BackgroundImageParallax.astro'
+import backgroundImage from '@assets/images/background-instruments.jpg'
+---
+
+<BackgroundImageParallax image={backgroundImage} alt="Vor der Show in der After Work Jazz Lounge" />
+<Container class={styles.container}>
+  <p>
+    Schön, dass Sie uns gefunden haben, egal, was Sie auch gesucht haben mögen!<br
+    />
+    Jazz of course - das ist eine Gruppe von Musikern, die sich gefunden haben, um
+    dieTradition des guten alten Jazz zu pflegen, damit Spaß zu haben und diese Freude
+    an der Musik dem Publikum egal welchen Alters zu vermitteln.
+  </p>
+  <p>
+    In der klassischen Besetzung mit Klavier, Gitarre, Kontrabass, Schlagzeug
+    und Gesang haben wir bekannte Jazz-Standards im Repertoire, aber auch kaum
+    bekannte Nummern, die es nicht weniger wert sind, am Leben gehalten zu
+    werden.
+  </p>
+  <p>
+    Musik, die vorbei am Großhirn unmittelbar in den Bauch und in die Füße geht
+    -ob Sie es wollen, oder nicht.<br />
+    Schauen Sie bei uns rein - wir freuen uns auf Sie!
+  </p>
+</Container>
