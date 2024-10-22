@@ -7,9 +7,7 @@ const events = defineCollection({
 		description: z.string(),
 		date: z.coerce.date(),
 		location: reference('locations').optional(),
-		heroImage: image().refine((img) => img.width >= 1080, {
-			message: "Cover image must be at least 1080 pixels wide!",
-		}).optional(),
+		heroImage: image().optional(),
 	}),
 })
 

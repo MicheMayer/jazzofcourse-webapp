@@ -5,3 +5,10 @@ export const eventScreen = sprinkles({
     paddingY: '2xl',
     backgroundColor: 'white',
 })
+
+export const eventList = sprinkles({
+    display: 'flex',
+    flexDirection: 'column',
+    gap: 'lg',
+    paddingY: 'lg',
+})

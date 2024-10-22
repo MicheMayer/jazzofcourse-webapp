@@ -9,17 +9,16 @@ import EventItem from './partials/EventItem.astro'
 interface Props extends DefaultComponentProps {}
 
 const { id, classNames } = Astro.props
-const allEvents = await getCollection('events')
-  .then((events) => events.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf()))
+const allEvents = await getCollection('events').then((events) =>
+  events.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+)
 ---
 
 <div id={id} class:list={[styles.eventScreen, classNames]}>
   <Container>
     <Heading level="2">Unsere nächsten Auftritte</Heading>
-      {
-        allEvents.map((event) => (
-          <EventItem event={event.data} />
-        ))
-      }
+    <div class={styles.eventList}>
+      {allEvents.map((event) => <EventItem event={event.data} />)}
+    </div>
   </Container>
 </div>
