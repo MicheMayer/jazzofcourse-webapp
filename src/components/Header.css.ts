@@ -1,5 +1,5 @@
-import { sprinkles } from '@styles'
-import { style } from '@vanilla-extract/css'
+import { sprinkles, vars } from '@styles'
+import { style, keyframes } from '@vanilla-extract/css'
 
 
 export const bar = style([
@@ -40,6 +40,7 @@ export const internalLinks = style([
 
 export const externalLinks = style([
 	{
+		boxShadow: vars.shadows.md,
 	},
 	sprinkles({
 		display: { xs: 'none', md: 'flex' },
@@ -50,8 +51,30 @@ export const externalLinks = style([
 	})
 ])
 
+const pulse = keyframes({
+	'0%': {
+		transform: 'scale(0.95)',
+		boxShadow: '0px 0px 0px 0px rgba(0, 0, 0, 0.7)',
+	},
+	'70%': {
+		transform: 'scale(1)',
+		boxShadow: '0px 0px 0px 0.6em rgba(0, 0, 0, 0)',
+	},
+	'100%': {
+		transform: 'scale(0.95)',
+		boxShadow: '0px 0px 0px 0px rgba(0, 0, 0, 0)',
+	},
+})
+
 export const bandIcon = style({
 	width: '1.5em',
 	height: '1.5em',
 	cursor: 'pointer',
+	transform: 'scale(1)',
+	borderRadius: '50%',
+	padding: '0.5em',
+	boxShadow: '0px 0px 0px rgba(0, 0, 0, 1)',
+	animationName: pulse,
+	animationDuration: '2s',
+	animationIterationCount: 'infinite',
 })

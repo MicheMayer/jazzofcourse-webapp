@@ -111,7 +111,7 @@ export const responsiveProperties = defineProperties({
     /** Positioning of an element. Can be set responsively. */
     position: ['absolute', 'relative', 'fixed'],
     /** Text alignment. Can be set responsively. */
-    textAlign: ['left', 'center', 'right'],
+    textAlign: ['left', 'center', 'right', 'justify'],
     /** Width of an element. Can be set responsively. */
     width: {
       full: '100%',

@@ -5,40 +5,42 @@ import ImageParallax from '@components/layout/ImageParallax.astro'
 import backgroundImage from '@assets/images/background-instruments.jpg'
 import ViewBox from '@components/layout/ViewBox.astro'
 import type { DefaultComponentProps } from '@models'
+import Heading from '@components/typography/Heading.astro'
 
-interface Props extends DefaultComponentProps {
-}
+interface Props extends DefaultComponentProps {}
 
 const { id, classNames } = Astro.props
-
 ---
 
 <section id={id} class:list={[styles.container, classNames]}>
-  <ImageParallax
-    classNames={styles.spaceImage}
-    image={backgroundImage}
-    alt="Vor der Show in der After Work Jazz Lounge"
-  />
   <Container>
     <ViewBox>
-      <p>
+      <Heading level="5">
         Schön, dass Sie uns gefunden haben, egal, was Sie auch gesucht haben
-        mögen!<br />
-        Jazz of course - das ist eine Gruppe von Musikern, die sich gefunden haben,
-        um dieTradition des guten alten Jazz zu pflegen, damit Spaß zu haben und
-        diese Freude an der Musik dem Publikum egal welchen Alters zu vermitteln.
+        mögen!
+      </Heading>
+      <p class={styles.paragraph}>
+        Jazz of course - das ist eine Gruppe von Musikern, die sich gefunden
+        haben, um dieTradition des guten alten Jazz zu pflegen, damit Spaß zu
+        haben und diese Freude an der Musik dem Publikum egal welchen Alters zu
+        vermitteln.
       </p>
-      <p>
+      <p class={styles.paragraph}>
         In der klassischen Besetzung mit Klavier, Gitarre, Kontrabass,
         Schlagzeug und Gesang haben wir bekannte Jazz-Standards im Repertoire,
         aber auch kaum bekannte Nummern, die es nicht weniger wert sind, am
         Leben gehalten zu werden.
       </p>
-      <p>
+      <p class={styles.paragraph}>
         Musik, die vorbei am Großhirn unmittelbar in den Bauch und in die Füße
         geht -ob Sie es wollen, oder nicht.<br />
         Schauen Sie bei uns rein - wir freuen uns auf Sie!
       </p>
     </ViewBox>
   </Container>
-</div>
+  <ImageParallax
+    classNames={styles.spaceImage}
+    image={backgroundImage}
+    alt="Vor der Show in der After Work Jazz Lounge"
+  />
+</section>

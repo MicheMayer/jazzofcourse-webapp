@@ -9,3 +9,8 @@ export const container = sprinkles({
 export const spaceImage = style({
     height: '25em',
 })
+
+export const paragraph = sprinkles({
+    paddingTop: { xs: 'xs', md: 'sm', lg: 'md'},
+    textAlign: 'justify',
+})

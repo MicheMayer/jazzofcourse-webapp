@@ -35,9 +35,11 @@ const importedForms = Object.entries(forms)
 
 export const mask = recipe({
     base: {
+        display: 'inline-block',
         maskRepeat: 'no-repeat',
         maskSize: 'contain',
         maskPosition: 'center',
+        maskOrigin: 'content-box',
     },
     variants: {
         form: { ...importedForms },
