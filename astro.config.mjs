@@ -4,7 +4,7 @@ import{ vanillaExtractPlugin }from'@vanilla-extract/vite-plugin';
 import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
-	site: 'https://jazz-of-course.de',
+	site: 'https://jazzofcourse.de',
 	vite:{
 		plugins:[
 			vanillaExtractPlugin({

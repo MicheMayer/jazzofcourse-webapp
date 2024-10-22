@@ -7,8 +7,10 @@ const today = new Date()
 ---
 
 <footer class={styles.footer}>
-  &copy; {today.getFullYear()}
-  {BAND_NAME}. All rights reserved.
+  <p class={styles.copyrightDisclaimer}>
+    &copy; {today.getFullYear()}
+    {BAND_NAME}. All rights reserved.
+  </p>
   <div class={styles.socialLinks}>
     <SocialLink type="instagram" label="Instagram" />
     <SocialLink type="facebook" label="Facebook" />

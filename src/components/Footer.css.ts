@@ -4,6 +4,12 @@ import { sprinkles } from '@styles'
 export const footer = sprinkles({
   color: 'textLight',
   textAlign: 'center',
+  paddingY: 'lg',
+})
+
+export const copyrightDisclaimer = sprinkles({
+  fontSize: 'sm',
+  paddingY: 'md',
 })
 
 export const socialLinks = style([
