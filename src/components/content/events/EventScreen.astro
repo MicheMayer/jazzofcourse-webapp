@@ -5,6 +5,7 @@ import Heading from '@components/typography/Heading.astro'
 import type { DefaultComponentProps } from '@models'
 import { getCollection } from 'astro:content'
 import EventItem from './partials/EventItem.astro'
+import ViewBox from '@components/layout/ViewBox.astro'
 
 interface Props extends DefaultComponentProps {}
 
@@ -16,9 +17,11 @@ const allEvents = await getCollection('events').then((events) =>
 
 <div id={id} class:list={[styles.eventScreen, classNames]}>
   <Container>
-    <Heading level="2">Unsere nächsten Auftritte</Heading>
-    <div class={styles.eventList}>
-      {allEvents.map((event) => <EventItem event={event.data} />)}
-    </div>
+    <ViewBox>
+      <Heading level="2">Unsere nächsten Auftritte</Heading>
+      <div class={styles.eventList}>
+        {allEvents.map((event) => <EventItem event={event.data} />)}
+      </div>
+    </ViewBox>
   </Container>
 </div>
