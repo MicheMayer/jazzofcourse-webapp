@@ -1,6 +1,7 @@
 ---
 import type { DefaultComponentProps } from '@models'
 import * as styles from './SocialLink.css'
+import type { SocialLinkColor } from './SocialLink.css'
 import youtube from './icons/youtube.svg?raw'
 import facebook from './icons/facebook.svg?raw'
 import instagram from './icons/instagram.svg?raw'
@@ -24,26 +25,27 @@ const socialIcons = {
     alt: 'Instagram',
     link: 'https://www.instagram.com/jazzofcourse',
   },
-    qrcode: {
-        icon: qrcode,
-        alt: 'QR-Code',
-        link: '/virtual-business-card/',
-    },
+  qrcode: {
+    icon: qrcode,
+    alt: 'QR-Code',
+    link: '/virtual-business-card/',
+  },
 } as Record<SocialType, { icon: string; alt: string; link: string }>
 
 interface Props extends DefaultComponentProps {
   label: string
   type: SocialType
+  color?: SocialLinkColor
 }
 
-const { label, type, classNames, id } = Astro.props
+const { label, type, color = 'primaryOneDefault', classNames, id } = Astro.props
 
 const socialObject = socialIcons[type]
 ---
 
 <a
   id={id}
-  class:list={[styles.container, classNames]}
+  class:list={[styles.socialLink({ color }), classNames]}
   href={socialObject.link}
   target="_blank"
 >
