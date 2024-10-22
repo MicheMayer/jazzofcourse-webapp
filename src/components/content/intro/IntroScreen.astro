@@ -1,17 +1,13 @@
 ---
 import * as styles from './IntroScreen.css'
 import Container from '@components/layout/Container.astro'
-import fallbackImage from '@assets/images/blog-placeholder-2.jpg'
 import BackgroundContentContainer from '@components/layout/BackgroundContentContainer.astro'
 import type { DefaultComponentProps } from '@models'
 import VideoSampleCard from './partials/VideoSampleCard.astro'
-import { Image } from 'astro:assets'
 import EventQuickLink from './partials/EventQuickLink.astro'
 import Logo from '@components/BandLogo.astro'
 
 interface Props extends DefaultComponentProps {}
-
-const videoSource = '/media/promo.mov'
 
 const { id, classNames } = Astro.props
 ---
@@ -24,15 +20,18 @@ const { id, classNames } = Astro.props
   <video
     slot="background"
     class={styles.backgroundVideo}
-    width="1920"
-    height="1080"
+    width="854"
+    height="480"
     autoplay
+    playsinline
     muted
     loop
   >
-    <source src={videoSource} type="video/mp4" />
-    <Image
-      src={fallbackImage}
+    <source src="/media/promo.mp4" type="video/mp4" />
+    <source src="/media/promo.mov" type="video/mp4" />
+    <source src="/media/promo.mkv" type="video/mp4" />
+    <img
+      src="/media/promo.jpg"
       alt="Your browser does not support video playback."
     />
   </video>
