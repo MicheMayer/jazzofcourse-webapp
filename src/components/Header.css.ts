@@ -8,7 +8,6 @@ export const bar = style([
 	},
 	sprinkles({
 		backgroundColor: 'white',
-		boxShadow: 'md',
 		padding: 'md',
 	}),
 ])
@@ -28,7 +27,7 @@ export const logo = style({
 
 export const internalLinks = style([
 	{
-	flexGrow: 1,
+		flexGrow: 1,
 	},
 	sprinkles({
 		display: 'flex',
@@ -54,4 +53,5 @@ export const externalLinks = style([
 export const bandIcon = style({
 	width: '1.5em',
 	height: '1.5em',
+	cursor: 'pointer',
 })

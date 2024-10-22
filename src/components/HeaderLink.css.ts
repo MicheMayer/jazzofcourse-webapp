@@ -1,17 +1,12 @@
-import { sprinkles, vars, type Color } from '@styles'
+import { sprinkles, vars } from '@styles'
+import type { Color } from '@styles'
 import { style } from '@vanilla-extract/css'
 import { recipe } from '@vanilla-extract/recipes'
 
-const container = style([
-    {
-        cursor: 'pointer',
-    },
-    sprinkles({
-        display: 'flex',
-        flexDirection: 'row',
-        alignItems: 'center',
-        gap: 'xs',
-    }),
+export const link = style([
+	{
+		cursor: 'pointer',
+	}
 ])
 
 export const colorVariants = Object.entries(vars.colors)
@@ -23,15 +18,10 @@ export const colorVariants = Object.entries(vars.colors)
         {} as Record<Color, { color: string, fill: string }>
     )
 
-export type SocialLinkColor = keyof typeof colorVariants
+export type HeaderLinkColor = keyof typeof colorVariants
 
-export const icon = style({
-    width: '1.5em',
-    height: '1.5em',
-})
-
-export const socialLink = recipe({
-    base: container,
+export const headerLink = recipe({
+    base: link,
     variants: {
         color: {
             ...colorVariants,

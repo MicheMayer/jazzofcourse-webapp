@@ -4,6 +4,7 @@ import type { CollectionEntry } from 'astro:content'
 import { getEntry } from 'astro:content'
 import * as styles from './EventItem.css'
 import instruments from '@assets/logos/band/instruments.svg'
+import Heading from '@components/typography/Heading.astro'
 
 interface Props extends DefaultComponentProps {
   event: CollectionEntry<'events'>['data']
@@ -19,7 +20,7 @@ var location =
 <div class:list={styles.eventItem}>
   <img class={styles.heroImage} src={event.heroImage?.src ?? instruments.src} alt={event.title} />
   <div class={styles.content}>
-    <h3>{event.title}</h3>
+    <Heading level="4" isCapitalized={true}>{event.title}</Heading>
     <div>
       {event.description}
     </div>

@@ -20,7 +20,7 @@ const { title, description, image = '/logos/band/full.png' } = Astro.props
   </head>
 
   <body class:list={[themeClass, styles.wrapper]}>
-    <Header />
+    <Header classNames={styles.header} />
     <main>
       <slot />
     </main>

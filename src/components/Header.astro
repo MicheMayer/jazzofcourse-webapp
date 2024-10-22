@@ -4,16 +4,23 @@ import { BAND_NAME } from 'src/consts'
 import BandLogo from '@components/BandLogo.astro'
 import * as styles from './Header.css'
 import SocialLink from '@components/navigation/socials/SocialLink.astro'
+import type { DefaultComponentProps } from '@models/default-component-props'
+
+interface Props extends DefaultComponentProps {
+}
+
+const { id, classNames } = Astro.props
 ---
 
-<header class={styles.bar}>
+<header id={id} class:list={[styles.bar, classNames]}>
   <nav class={styles.nav}>
-    <a class={styles.logo} href="/">
+    <a class={styles.logo} href="/#home">
       <BandLogo classNames={styles.bandIcon} form="j" color="black" />
     </a>
     <div class={styles.internalLinks}>
-      <HeaderLink href="#home">Home</HeaderLink>
+      <!-- <HeaderLink href="#home">Home</HeaderLink> -->
       <HeaderLink href="#events">Auftritte</HeaderLink>
+      <HeaderLink href="#about">Über uns</HeaderLink>
     </div>
     <div class={styles.externalLinks}>
       <SocialLink type="instagram" label="Instagram" />

@@ -37,7 +37,9 @@ export const introContent = style([
         },
     },
     sprinkles({
-        paddingY: '4xl',
+        paddingTop: { xs: 'sm', md: 'lg', lg: '2xl'},
+        paddingBottom: { xs: 'lg', md: '3xl', lg: '4xl'},
+        marginY: { xs: 'md', md: 'lg', lg: '4xl'},
     })
 ])
 
@@ -47,7 +49,7 @@ export const bandLogo = style([
     },
     sprinkles({
         width: 'full',
-        marginY: '3xl',
+        marginY: { xs: 'lg', md: 'xl', lg: '4xl'},
         marginX: 'auto',
     })
 ])
