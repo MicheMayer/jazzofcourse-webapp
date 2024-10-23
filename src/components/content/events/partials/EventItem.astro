@@ -28,8 +28,8 @@ var location =
     <div>
       {event.description}
     </div>
-    <time>{event.date.toLocaleDateString('de-de')}</time>
-    <time>{event.date.toLocaleTimeString('de-de', {hour: '2-digit', minute:'2-digit'})} Uhr</time>
+    <time>{new Date(event.date).toLocaleDateString('de-de')}</time>
+    <time>{new Date(event.date).toLocaleTimeString('de-de', {hour: '2-digit', minute:'2-digit'})} Uhr</time>
     {location && <div>{location}</div>}
   </div>
 </div>
