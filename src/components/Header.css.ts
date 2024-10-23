@@ -1,11 +1,7 @@
 import { sprinkles, vars } from '@styles'
 import { style, keyframes } from '@vanilla-extract/css'
 
-
 export const bar = style([
-	{
-		height: 'fit-content',
-	},
 	sprinkles({
 		backgroundColor: 'white',
 		padding: 'md',
@@ -52,18 +48,9 @@ export const externalLinks = style([
 ])
 
 const pulse = keyframes({
-	'0%': {
-		transform: 'scale(0.95)',
-		boxShadow: '0px 0px 0px 0px rgba(0, 0, 0, 0.7)',
-	},
-	'70%': {
-		transform: 'scale(1)',
-		boxShadow: '0px 0px 0px 0.6em rgba(0, 0, 0, 0)',
-	},
-	'100%': {
-		transform: 'scale(0.95)',
-		boxShadow: '0px 0px 0px 0px rgba(0, 0, 0, 0)',
-	},
+	'0%': { transform: 'scale(0.90)' },
+	'70%': { transform: 'scale(1)' },
+	'100%': { transform: 'scale(0.90)' },
 })
 
 export const bandIcon = style({
@@ -73,8 +60,7 @@ export const bandIcon = style({
 	transform: 'scale(1)',
 	borderRadius: '50%',
 	padding: '0.5em',
-	boxShadow: '0px 0px 0px rgba(0, 0, 0, 1)',
 	animationName: pulse,
-	animationDuration: '2s',
+	animationDuration: '3s',
 	animationIterationCount: 'infinite',
 })

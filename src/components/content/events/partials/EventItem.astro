@@ -18,13 +18,18 @@ var location =
 ---
 
 <div class:list={styles.eventItem}>
-  <img class={styles.heroImage} src={event.heroImage?.src ?? instruments.src} alt={event.title} />
+  <img
+    class={styles.heroImage}
+    src={event.heroImage?.src ?? instruments.src}
+    alt={event.title}
+  />
   <div class={styles.content}>
     <Heading level="4" isCapitalized={true}>{event.title}</Heading>
     <div>
       {event.description}
     </div>
-    <time>{new Date(event.date).toLocaleDateString('de-de')}</time>
+    <time>{event.date.toLocaleDateString('de-de')}</time>
+    <time>{event.date.toLocaleTimeString('de-de', {hour: '2-digit', minute:'2-digit'})} Uhr</time>
     {location && <div>{location}</div>}
   </div>
 </div>
