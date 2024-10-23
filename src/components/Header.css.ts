@@ -1,12 +1,10 @@
 import { sprinkles, vars } from '@styles'
 import { style, keyframes } from '@vanilla-extract/css'
 
-export const bar = style([
-	sprinkles({
-		backgroundColor: 'white',
-		padding: 'md',
-	}),
-])
+export const bar = sprinkles({
+	backgroundColor: 'white',
+	padding: 'md',
+})
 
 export const nav = sprinkles({
 	display: 'flex',
@@ -34,18 +32,13 @@ export const internalLinks = style([
 	})
 ])
 
-export const externalLinks = style([
-	{
-		boxShadow: vars.shadows.md,
-	},
-	sprinkles({
-		display: { xs: 'none', md: 'flex' },
-		flexDirection: 'row',
-		alignItems: 'center',
-		justifyContent: 'flex-end',
-		gap: 'lg',
-	})
-])
+export const externalLinks = sprinkles({
+	display: { xs: 'none', md: 'flex' },
+	flexDirection: 'row',
+	alignItems: 'center',
+	justifyContent: 'flex-end',
+	gap: 'lg',
+})
 
 const pulse = keyframes({
 	'0%': { transform: 'scale(0.90)' },
