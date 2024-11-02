@@ -14,6 +14,11 @@ export const heroImage = sprinkles({
   maxWidth: { xs: 'full', lg: 'xs' },
 })
 
+export const weblinkIcon = style({
+  height: '1.5rem',
+  cursor: 'pointer',
+})
+
 export const content = sprinkles({
   display: 'flex',
   flexDirection: 'column',

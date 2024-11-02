@@ -4,7 +4,9 @@ import type { CollectionEntry } from 'astro:content'
 import { getEntry } from 'astro:content'
 import * as styles from './EventItem.css'
 import instruments from '@assets/logos/band/instruments.svg'
+import globe from '@components/content/events/icons/globe.svg'
 import Heading from '@components/typography/Heading.astro'
+import { Image } from 'astro:assets'
 
 interface Props extends DefaultComponentProps {
   event: CollectionEntry<'events'>['data']
@@ -31,5 +33,6 @@ var location =
     <time>{new Date(event.date).toLocaleDateString('de-de')}</time>
     <time>{new Date(event.date).toLocaleTimeString('de-de', {hour: '2-digit', minute:'2-digit'})} Uhr</time>
     {location && <div>{location}</div>}
+    {event.weblink && <a href={event.weblink} target="_blank" rel="noopener"><Image class={styles.weblinkIcon} src={globe} alt="globe icon for web link" /></a>}
   </div>
 </div>

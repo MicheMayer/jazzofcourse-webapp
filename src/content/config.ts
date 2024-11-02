@@ -8,6 +8,7 @@ const events = defineCollection({
 		date: z.coerce.date(),
 		location: reference('locations').optional(),
 		heroImage: image().optional(),
+		weblink: z.string().url().optional(),
 	}),
 })
 
