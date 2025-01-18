@@ -14,9 +14,10 @@ interface Props extends DefaultComponentProps {
 
 const { event } = Astro.props
 
-var location =
+var eventLocation =
   event.location?.id &&
-  (await getEntry('locations', event.location.id)).data.name
+  await getEntry('locations', event.location.id)
+    ?.then((location) => location.data.name)
 ---
 
 <div class:list={styles.eventItem}>
@@ -32,7 +33,7 @@ var location =
     </div>
     <time>{new Date(event.date).toLocaleDateString('de-de')}</time>
     <time>{new Date(event.date).toLocaleTimeString('de-de', {hour: '2-digit', minute:'2-digit'})} Uhr</time>
-    {location && <div>{location}</div>}
+    {eventLocation && <div>{eventLocation}</div>}
     {event.weblink && <a href={event.weblink} target="_blank" rel="noopener"><Image class={styles.weblinkIcon} src={globe} alt="globe icon for web link" /></a>}
   </div>
 </div>

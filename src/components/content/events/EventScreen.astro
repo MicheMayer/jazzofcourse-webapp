@@ -10,17 +10,21 @@ import ViewBox from '@components/layout/ViewBox.astro'
 interface Props extends DefaultComponentProps {}
 
 const { id, classNames } = Astro.props
-const allEvents = await getCollection('events').then((events) =>
-  events
-    .filter((event) => event.data.date.valueOf() >= Date.now().valueOf())
-    .sort((a, b) => a.data.date.valueOf() - b.data.date.valueOf())
-)
+const allEvents = await getCollection('events')
+  .then((events) =>
+    events
+      .filter((event) => event.data.date.valueOf() >= Date.now().valueOf())
+      .sort((a, b) => a.data.date.valueOf() - b.data.date.valueOf())
+  )
 ---
 
 <section id={id} class:list={[styles.eventScreen, classNames]}>
   <Container>
     <ViewBox>
       <Heading level="2">Unsere nächsten Auftritte</Heading>
+      {allEvents.length === 0 && 
+        <p>Bald verfügbar.</p>
+      }
       <div class={styles.eventList}>
         {allEvents.map((event) => <EventItem event={event.data} />)}
       </div>
