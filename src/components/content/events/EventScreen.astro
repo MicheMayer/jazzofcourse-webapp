@@ -12,7 +12,7 @@ interface Props extends DefaultComponentProps {}
 const { id, classNames } = Astro.props
 const allEvents = await getCollection('events').then((events) =>
   events
-    .filter((event) => event.data.date.valueOf() >= Date.now())
+    .filter((event) => event.data.date.valueOf() >= Date.now().valueOf())
     .sort((a, b) => a.data.date.valueOf() - b.data.date.valueOf())
 )
 ---
