@@ -1,4 +1,4 @@
-import { sprinkles, vars } from '@styles'
+import { vars } from '@styles'
 import type { Color } from '@styles'
 import { style } from '@vanilla-extract/css'
 import { recipe } from '@vanilla-extract/recipes'

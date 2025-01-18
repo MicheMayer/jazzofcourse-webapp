@@ -20,9 +20,9 @@ var location =
 ---
 
 <div class:list={styles.eventItem}>
-  <img
+  <Image
     class={styles.heroImage}
-    src={event.heroImage?.src ?? instruments.src}
+    src={event.heroImage ?? instruments}
     alt={event.title}
   />
   <div class={styles.content}>

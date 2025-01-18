@@ -12,6 +12,8 @@ export const eventItem = sprinkles({
 export const heroImage = sprinkles({
   width: { xs: 'full', lg: 'auto' },
   maxWidth: { xs: 'full', lg: 'xs' },
+  height: { xs: 'auto', lg: 'full' },
+  objectFit: 'cover',
 })
 
 export const weblinkIcon = style({

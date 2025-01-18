@@ -112,6 +112,8 @@ export const responsiveProperties = defineProperties({
     position: ['absolute', 'relative', 'fixed'],
     /** Text alignment. Can be set responsively. */
     textAlign: ['left', 'center', 'right', 'justify'],
+    /** Specifies how an <img> or <video> should be resized to fit its container */
+    objectFit: ['cover', 'contain', 'fill', 'none', 'scale-down'],
     /** Width of an element. Can be set responsively. */
     width: {
       full: '100%',
