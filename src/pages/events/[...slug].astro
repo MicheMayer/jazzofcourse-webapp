@@ -19,6 +19,12 @@ type Props = CollectionEntry<'events'>
 const post = Astro.props
 ---
 
-<BaseLayout title={SITE_TITLE} description={SITE_DESCRIPTION}>
+<BaseLayout 
+  title={SITE_TITLE}
+  description={SITE_DESCRIPTION}
+  image={post.data.heroImage?.src}
+  title={post.data.title}
+  description={post.data.description}
+>
   <EventPost post={post} />
 </BaseLayout>

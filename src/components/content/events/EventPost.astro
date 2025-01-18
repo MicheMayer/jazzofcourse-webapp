@@ -1,7 +1,7 @@
 ---
 import { type CollectionEntry, getEntry } from 'astro:content'
 import { Image } from 'astro:assets'
-import instruments from '@assets/logos/band/instruments.svg'
+import bandFoto from '@assets/images/band-reihe.jpg'
 import Heading from '@components/typography/Heading.astro'
 import { render } from 'astro:content'
 import globe from '@components/content/events/icons/globe.svg'
@@ -26,7 +26,7 @@ var eventLocation =
 ---
 
 <>
-  <BackgroundImage src={event.heroImage ?? instruments} alt={event.title}>
+  <BackgroundImage src={event.heroImage ?? bandFoto} alt={event.title}>
     <ViewBox>
       <Container classNames={styles.banner}>
         <div class={styles.infoBox}>
