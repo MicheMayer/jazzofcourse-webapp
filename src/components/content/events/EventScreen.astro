@@ -13,21 +13,31 @@ const { id, classNames } = Astro.props
 const allEvents = await getCollection('events')
   .then((events) =>
     events
-      .filter((event) => event.data.date.valueOf() >= Date.now().valueOf())
       .sort((a, b) => a.data.date.valueOf() - b.data.date.valueOf())
   )
+const upcomingEvents = allEvents
+  .filter((event) => event.data.date.valueOf() >= Date.now().valueOf())
+const pastEvents = allEvents
+  .filter((event) => event.data.date.valueOf() < Date.now().valueOf())
 ---
 
 <section id={id} class:list={[styles.eventScreen, classNames]}>
   <Container>
     <ViewBox>
-      <Heading level="2">Unsere nächsten Auftritte</Heading>
-      {allEvents.length === 0 && 
-        <p>Bald verfügbar.</p>
+      {
+        upcomingEvents.length > 0 &&
+          <Heading level="2">Unsere nächsten Auftritte</Heading>
+          <div class={styles.eventList}>
+            {upcomingEvents.map((event) => <EventItem eventEntry={event} />)}
+          </div>
       }
-      <div class={styles.eventList}>
-        {allEvents.map((event) => <EventItem event={event.data} />)}
-      </div>
+      {
+        pastEvents.length === 0 && 
+          <Heading level="2">Vergange Konzerte</Heading>
+          <div class={styles.eventList}>
+            {pastEvents.map((event) => <EventItem eventEntry={event} />)}
+          </div>
+      }
     </ViewBox>
   </Container>
 </section>

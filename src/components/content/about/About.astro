@@ -2,7 +2,7 @@
 import Container from '@components/layout/Container.astro'
 import * as styles from './About.css'
 import ImageParallax from '@components/layout/ImageParallax.astro'
-import backgroundImage from '@assets/images/background-instruments.jpg'
+import backgroundImage from '@assets/images/impressions/piano.jpg'
 import ViewBox from '@components/layout/ViewBox.astro'
 import type { DefaultComponentProps } from '@models'
 import Heading from '@components/typography/Heading.astro'
@@ -33,14 +33,14 @@ const { id, classNames } = Astro.props
       </p>
       <p class={styles.paragraph}>
         Musik, die vorbei am Großhirn unmittelbar in den Bauch und in die Füße
-        geht -ob Sie es wollen, oder nicht.<br />
+        geht - ob Sie es wollen, oder nicht.<br />
         Schauen Sie bei uns rein - wir freuen uns auf Sie!
       </p>
     </ViewBox>
   </Container>
   <ImageParallax
     classNames={styles.spaceImage}
-    image={backgroundImage}
+    src={backgroundImage}
     alt="Vor der Show in der After Work Jazz Lounge"
   />
 </section>

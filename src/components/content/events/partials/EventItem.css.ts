@@ -1,13 +1,19 @@
 import { sprinkles } from '@styles'
 import { style } from '@vanilla-extract/css'
 
-export const eventItem = sprinkles({
-  display: 'flex',
-  flexDirection: { xs: 'column', lg: 'row' },
-  gap: 'lg',
-  boxShadow: 'sm',
-  padding: 'lg',
-})
+export const eventItem = style([
+  {
+    cursor: 'pointer',
+  },
+  sprinkles({
+    display: 'flex',
+    flexDirection: { xs: 'column', lg: 'row' },
+    gap: 'lg',
+    boxShadow: 'sm',
+    padding: { xs: 'sm', lg: 'lg'},
+  })
+])
+
 
 export const heroImage = sprinkles({
   width: { xs: 'full', lg: 'auto' },
@@ -16,13 +22,12 @@ export const heroImage = sprinkles({
   objectFit: 'cover',
 })
 
-export const weblinkIcon = style({
-  height: '1.5rem',
-  cursor: 'pointer',
-})
-
 export const content = sprinkles({
   display: 'flex',
   flexDirection: 'column',
-  gap: 'xs',
+  gap: { xs: 'sm', md: 'md'},
+})
+
+export const title = sprinkles({
+  marginBottom: { xs: 'xs', lg: 'lg'},
 })

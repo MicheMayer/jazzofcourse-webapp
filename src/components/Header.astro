@@ -1,6 +1,5 @@
 ---
 import HeaderLink from '@components/HeaderLink.astro'
-import { BAND_NAME } from 'src/consts'
 import BandLogo from '@components/BandLogo.astro'
 import * as styles from './Header.css'
 import SocialLink from '@components/navigation/socials/SocialLink.astro'
@@ -18,9 +17,8 @@ const { id, classNames } = Astro.props
       <BandLogo classNames={styles.bandIcon} form="j" color="black" />
     </a>
     <div class={styles.internalLinks}>
-      <!-- <HeaderLink href="#home">Home</HeaderLink> -->
-      <HeaderLink href="#events">Auftritte</HeaderLink>
-      <HeaderLink href="#about">Über uns</HeaderLink>
+      <HeaderLink href="/#events">Auftritte</HeaderLink>
+      <HeaderLink href="/#about">Über uns</HeaderLink>
     </div>
     <div class={styles.externalLinks}>
       <SocialLink type="instagram" label="Instagram" />

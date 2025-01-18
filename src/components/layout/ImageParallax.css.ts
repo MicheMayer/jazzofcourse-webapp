@@ -3,6 +3,7 @@ import { style } from '@vanilla-extract/css'
 export const wrapper = style({
     position: 'relative',
     width: 'auto',
+    minHeight: '25vh',
 })
 
 export const fixedBackgroundContainer = style({
@@ -19,6 +20,7 @@ export const parallaxContainer = style({
     '@supports': {
         '(overflow: clip)': {
             overflow: 'clip',
+            width: '100%',
             height: '2000vh',
             marginTop: '-1000vh',
         }

@@ -26,8 +26,8 @@ export const colorVariants = Object.entries(vars.colors)
 export type SocialLinkColor = keyof typeof colorVariants
 
 export const icon = style({
-    width: '1.5em',
-    height: '1.5em',
+    width: '1em',
+    height: '1em',
 })
 
 export const socialLink = recipe({

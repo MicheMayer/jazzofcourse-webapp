@@ -1,0 +1,72 @@
+---
+import { type CollectionEntry, getEntry } from 'astro:content'
+import { Image } from 'astro:assets'
+import instruments from '@assets/logos/band/instruments.svg'
+import Heading from '@components/typography/Heading.astro'
+import { render } from 'astro:content'
+import globe from '@components/content/events/icons/globe.svg'
+import * as styles from './EventPost.css'
+import Container from '@components/layout/Container.astro'
+import ViewBox from '@components/layout/ViewBox.astro'
+import BackgroundImage from '@components/layout/BackgroundImage.astro'
+
+type Props = {
+  post: CollectionEntry<'events'>
+}
+
+const { post } = Astro.props
+const event = post.data
+const { Content } = await render(post)
+
+var eventLocation =
+  event.location?.id &&
+  (await getEntry('locations', event.location.id)?.then(
+    (location) => location.data.name
+  ))
+---
+
+<>
+  <BackgroundImage src={event.heroImage ?? instruments} alt={event.title}>
+    <ViewBox>
+      <Container classNames={styles.banner}>
+        <div class={styles.infoBox}>
+          <time>{new Date(event.date).toLocaleDateString('de-de')}</time>
+          <time>
+            {
+              new Date(event.date).toLocaleTimeString('de-de', {
+                hour: '2-digit',
+                minute: '2-digit',
+              })
+            } Uhr
+          </time>
+          {eventLocation && <div>{eventLocation}</div>}
+        </div>
+      </Container>
+    </ViewBox>
+  </BackgroundImage>
+  <Container classNames={styles.container}>
+    <ViewBox>
+      <Heading level="1" isCapitalized={true}>
+        {event.title}
+      </Heading>
+      {
+        event.weblink && (
+          <a
+            class={styles.weblink}
+            href={event.weblink}
+            target="_blank"
+            rel="noopener"
+          >
+            <Image
+              class={styles.weblinkIcon}
+              src={globe}
+              alt="globe icon for web link"
+            />{' '}
+            zur Webseite
+          </a>
+        )
+      }
+      <Content />
+    </ViewBox>
+  </Container>
+</>

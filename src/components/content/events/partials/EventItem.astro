@@ -4,36 +4,50 @@ import type { CollectionEntry } from 'astro:content'
 import { getEntry } from 'astro:content'
 import * as styles from './EventItem.css'
 import instruments from '@assets/logos/band/instruments.svg'
-import globe from '@components/content/events/icons/globe.svg'
 import Heading from '@components/typography/Heading.astro'
 import { Image } from 'astro:assets'
+import { slugify } from '@utils/content/slug'
 
 interface Props extends DefaultComponentProps {
-  event: CollectionEntry<'events'>['data']
+  eventEntry: CollectionEntry<'events'>
 }
 
-const { event } = Astro.props
+const { eventEntry } = Astro.props
+const event = eventEntry.data
 
 var eventLocation =
   event.location?.id &&
-  await getEntry('locations', event.location.id)
-    ?.then((location) => location.data.name)
+  (await getEntry('locations', event.location.id)?.then(
+    (location) => location.data.name
+  ))
 ---
 
-<div class:list={styles.eventItem}>
-  <Image
-    class={styles.heroImage}
-    src={event.heroImage ?? instruments}
-    alt={event.title}
-  />
-  <div class={styles.content}>
-    <Heading level="4" isCapitalized={true}>{event.title}</Heading>
-    <div>
-      {event.description}
+<a
+  href={`events/${slugify(eventEntry.data.title, eventEntry.data.date.toLocaleDateString())}`}
+>
+  <div class:list={styles.eventItem}>
+    <Image
+      class={styles.heroImage}
+      src={event.heroImage ?? instruments}
+      alt={event.title}
+    />
+    <div class={styles.content}>
+      <Heading classNames={styles.title} level="4" isCapitalized={true}
+        >{event.title}</Heading
+      >
+      <div>
+        {event.description}
+      </div>
+      <time>{new Date(event.date).toLocaleDateString('de-de')}</time>
+      <time
+        >{
+          new Date(event.date).toLocaleTimeString('de-de', {
+            hour: '2-digit',
+            minute: '2-digit',
+          })
+        } Uhr</time
+      >
+      {eventLocation && <div>{eventLocation}</div>}
     </div>
-    <time>{new Date(event.date).toLocaleDateString('de-de')}</time>
-    <time>{new Date(event.date).toLocaleTimeString('de-de', {hour: '2-digit', minute:'2-digit'})} Uhr</time>
-    {eventLocation && <div>{eventLocation}</div>}
-    {event.weblink && <a href={event.weblink} target="_blank" rel="noopener"><Image class={styles.weblinkIcon} src={globe} alt="globe icon for web link" /></a>}
   </div>
-</div>
+</a>

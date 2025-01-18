@@ -1,9 +1,9 @@
-import { sprinkles, vars } from '@styles'
+import { sprinkles } from '@styles'
 import { style, keyframes } from '@vanilla-extract/css'
 
 export const bar = sprinkles({
 	backgroundColor: 'white',
-	padding: 'md',
+	padding: { xs: 'xs', lg: 'md' },
 })
 
 export const nav = sprinkles({
@@ -12,7 +12,8 @@ export const nav = sprinkles({
 	flexWrap: 'nowrap',
 	justifyContent: 'flex-start',
 	alignItems: 'center',
-	gap: 'lg',
+	gap: { xs: 'md', lg: 'lg' },
+	fontSize: { xs: 'md', md: 'lg', lg: 'xl' },
 })
 
 export const logo = style({
@@ -47,12 +48,13 @@ const pulse = keyframes({
 })
 
 export const bandIcon = style({
-	width: '1.5em',
-	height: '1.5em',
+	width: '1em',
+	height: '1em',
 	cursor: 'pointer',
 	transform: 'scale(1)',
 	borderRadius: '50%',
 	padding: '0.5em',
+	margin: '-0.5em',
 	animationName: pulse,
 	animationDuration: '3s',
 	animationIterationCount: 'infinite',

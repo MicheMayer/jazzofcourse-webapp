@@ -5,7 +5,7 @@ import BackgroundContentContainer from '@components/layout/BackgroundContentCont
 import { backgroundImage } from './BackgroundImageParallax.css'
 
 interface Props extends DefaultComponentProps {
-  image: ImageMetadata | Promise<{
+  src: ImageMetadata | Promise<{
     default: ImageMetadata
   }>,
   alt: string,
@@ -13,12 +13,12 @@ interface Props extends DefaultComponentProps {
 const {
   id,
   classNames,
-  image,
+  src,
   alt,
 } = Astro.props
 ---
 
 <BackgroundContentContainer id={id} class:list={[classNames]} isParallax={true}>
-  <Image slot="background" class={backgroundImage} src={image} alt={alt} />
+  <Image slot="background" class={backgroundImage} src={src} alt={alt} />
   <slot />
 </BackgroundContentContainer>

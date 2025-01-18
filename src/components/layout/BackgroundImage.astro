@@ -1,13 +1,11 @@
 ---
 import type { DefaultComponentProps } from "@models/index"
-import {
-  backgroundImage,
-} from "./BackgroundImage.css"
+import * as styles from "./BackgroundImage.css"
 import BackgroundContentContainer from '@components/layout/BackgroundContentContainer.astro'
 import { Image } from 'astro:assets'
 
 interface Props extends DefaultComponentProps {
-  image:
+  src:
     | ImageMetadata
     | Promise<{
         default: ImageMetadata;
@@ -18,12 +16,12 @@ interface Props extends DefaultComponentProps {
 const {
   id,
   classNames,
-  image,
+  src,
   alt,
 } = Astro.props
 ---
 
 <BackgroundContentContainer id={id} class:list={[classNames]} isParallax={false}>
-  <Image slot="background" class={backgroundImage} src={image} alt={alt} />
+  <Image slot="background" class={styles.backgroundImage} src={src} alt={alt} loading="lazy" />
   <slot />
 </BackgroundContentContainer>
