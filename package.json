@@ -26,5 +26,8 @@
   "devDependencies": {
     "@vanilla-extract/vite-plugin": "^4.0.9",
     "vitest": "^2.1.2"
+  },
+  "optionalDependencies": {
+    "@rollup/rollup-linux-x64-gnu": "*"
   }
 }
