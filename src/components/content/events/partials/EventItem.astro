@@ -7,6 +7,8 @@ import instruments from '@assets/logos/band/instruments.svg'
 import Heading from '@components/typography/Heading.astro'
 import { Image } from 'astro:assets'
 import { slugify } from '@utils/content/slug'
+import DateDisplay from '@components/typography/datetime/DateDisplay.astro'
+import TimeDisplay from '@components/typography/datetime/TimeDisplay.astro'
 
 interface Props extends DefaultComponentProps {
   eventEntry: CollectionEntry<'events'>
@@ -38,15 +40,8 @@ var eventLocation =
       <div class={styles.description}>
         {event.description}
       </div>
-      <time class={styles.date}>{new Date(event.date).toLocaleDateString('de-de')}</time>
-      <time
-        >{
-          new Date(event.date).toLocaleTimeString('de-de', {
-            hour: '2-digit',
-            minute: '2-digit',
-          })
-        } Uhr</time
-      >
+      <DateDisplay date={event.date} classNames={styles.date} />
+      <TimeDisplay date={event.date} />
       {eventLocation && <div>{eventLocation}</div>}
     </div>
   </div>

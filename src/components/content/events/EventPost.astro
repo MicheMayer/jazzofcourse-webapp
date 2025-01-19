@@ -9,6 +9,8 @@ import * as styles from './EventPost.css'
 import Container from '@components/layout/Container.astro'
 import ViewBox from '@components/layout/ViewBox.astro'
 import BackgroundImage from '@components/layout/BackgroundImage.astro'
+import DateDisplay from '@components/typography/datetime/DateDisplay.astro'
+import TimeDisplay from '@components/typography/datetime/TimeDisplay.astro'
 
 type Props = {
   post: CollectionEntry<'events'>
@@ -27,48 +29,43 @@ var eventLocation =
 
 <>
   <BackgroundImage src={event.heroImage ?? bandFoto} alt={event.title}>
-    <ViewBox>
-      <Container classNames={styles.banner}>
+    <Container classNames={styles.banner} maxWidth="lg">
+      <ViewBox>
         <div class={styles.infoBox}>
-          <time>{new Date(event.date).toLocaleDateString('de-de')}</time>
-          <time>
-            {
-              new Date(event.date).toLocaleTimeString('de-de', {
-                hour: '2-digit',
-                minute: '2-digit',
-              })
-            } Uhr
-          </time>
+          <DateDisplay date={event.date} />
+          <TimeDisplay date={event.date} />
           {eventLocation && <div>{eventLocation}</div>}
         </div>
-      </Container>
-    </ViewBox>
+      </ViewBox>
+    </Container>
   </BackgroundImage>
-  <Container classNames={styles.container}>
-    <ViewBox>
-      <Heading classNames={styles.title} level="1" isCapitalized={true}>
-        {event.title}
-      </Heading>
-      {
-        event.weblink && (
-          <a
-            class={styles.weblink}
-            href={event.weblink}
-            target="_blank"
-            rel="noopener"
-          >
-            <Image
-              class={styles.weblinkIcon}
-              src={link}
-              alt="icon for web link"
-            />{' '}
-            zur Webseite
-          </a>
-        )
-      }
-      <article>
-        <Content />
-      </article>
-    </ViewBox>
-  </Container>
+  <article class={styles.contentArea}>
+    <Container maxWidth="md">
+      <ViewBox>
+        <Heading classNames={styles.title} level="1" isCapitalized={true}>
+          {event.title}
+        </Heading>
+        {
+          event.weblink && (
+            <a
+              class={styles.weblink}
+              href={event.weblink}
+              target="_blank"
+              rel="noopener"
+            >
+              <Image
+                class={styles.weblinkIcon}
+                src={link}
+                alt="icon for web link"
+              />{' '}
+              zur Webseite
+            </a>
+          )
+        }
+        <section>
+          <Content />
+        </section>
+      </ViewBox>
+    </Container>
+  </article>
 </>

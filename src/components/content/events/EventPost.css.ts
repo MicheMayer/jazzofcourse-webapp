@@ -1,7 +1,7 @@
 import { style } from '@vanilla-extract/css'
 import { sprinkles } from '@styles'
 
-export const container = sprinkles({
+export const contentArea = sprinkles({
     color: 'textDefault',
     backgroundColor: 'white',
 })
@@ -20,13 +20,14 @@ export const banner = style([
 export const infoBox = style([
     {
         textShadow: '1px 1px 2px black',
+        wordWrap: 'break-word',
     },
     sprinkles({
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
         gap: { xs: 'xs', lg: 'sm' },
-        fontSize: { xs: '2xl', lg: '5xl' },
+        fontSize: { xs: '4xl', lg: '5xl' },
         color: 'white',
         textAlign: 'center',
     }),
