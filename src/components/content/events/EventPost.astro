@@ -11,6 +11,7 @@ import ViewBox from '@components/layout/ViewBox.astro'
 import BackgroundImage from '@components/layout/BackgroundImage.astro'
 import DateDisplay from '@components/typography/datetime/DateDisplay.astro'
 import TimeDisplay from '@components/typography/datetime/TimeDisplay.astro'
+import LineUp from './partials/LineUp.astro'
 
 type Props = {
   post: CollectionEntry<'events'>
@@ -65,6 +66,7 @@ var eventLocation =
         <section>
           <Content />
         </section>
+        <LineUp lineup={event.lineup} />
       </ViewBox>
     </Container>
   </article>

@@ -1,0 +1,23 @@
+---
+import Heading from '@components/typography/Heading.astro'
+import type { DefaultComponentProps } from '@models'
+import { getEntries } from 'astro:content'
+import { type CollectionEntry } from 'astro:content'
+
+interface Props extends DefaultComponentProps {
+  lineup: CollectionEntry<'events'>['data']['lineup']
+}
+
+const { lineup, ...props } = Astro.props
+
+var musicianData = lineup && await getEntries(lineup)
+---
+{
+    musicianData && 
+    <div id={props.id} class:list={props.classNames}>
+        <Heading level="4">Besetzung</Heading>
+        <ul>
+            {musicianData.map((musician) => <li>{musician.data.name} - {musician.data.instrument}</li>)}
+        </ul>
+    </div>
+}

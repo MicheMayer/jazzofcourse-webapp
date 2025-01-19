@@ -9,6 +9,7 @@ const events = defineCollection({
 		location: reference('locations').optional(),
 		heroImage: image().optional(),
 		weblink: z.string().url().optional(),
+		lineup: z.array(reference('musicians')).optional(),
 	}),
 })
 
@@ -19,4 +20,12 @@ const locations = defineCollection({
 	}),
 })
 
-export const collections = { events, locations }
+const musicians = defineCollection({
+	type: 'data',
+	schema: z.object({
+		name: z.string(),
+		instrument: z.string(),
+	}),
+})
+
+export const collections = { events, locations, musicians }
