@@ -32,10 +32,20 @@ export const infoBox = style([
     }),
 ])
 
-export const weblink = style({
-    whiteSpace: 'nowrap',
-    cursor: 'pointer',
+export const title = sprinkles({
+    marginBottom: { xs: 'sm', lg: 'md' },
 })
+
+export const weblink = style([
+    {
+        whiteSpace: 'nowrap',
+        cursor: 'pointer',
+    },
+    sprinkles({
+        display: 'block',
+        marginBottom: { xs: 'xs', lg: 'sm' },
+    }),
+])
 
 export const weblinkIcon = style({
     display: 'inline-block',

@@ -4,7 +4,7 @@ import { Image } from 'astro:assets'
 import bandFoto from '@assets/images/band-reihe.jpg'
 import Heading from '@components/typography/Heading.astro'
 import { render } from 'astro:content'
-import globe from '@components/content/events/icons/globe.svg'
+import link from '@components/content/events/icons/link.svg'
 import * as styles from './EventPost.css'
 import Container from '@components/layout/Container.astro'
 import ViewBox from '@components/layout/ViewBox.astro'
@@ -46,7 +46,7 @@ var eventLocation =
   </BackgroundImage>
   <Container classNames={styles.container}>
     <ViewBox>
-      <Heading level="1" isCapitalized={true}>
+      <Heading classNames={styles.title} level="1" isCapitalized={true}>
         {event.title}
       </Heading>
       {
@@ -59,14 +59,16 @@ var eventLocation =
           >
             <Image
               class={styles.weblinkIcon}
-              src={globe}
-              alt="globe icon for web link"
+              src={link}
+              alt="icon for web link"
             />{' '}
             zur Webseite
           </a>
         )
       }
-      <Content />
+      <article>
+        <Content />
+      </article>
     </ViewBox>
   </Container>
 </>

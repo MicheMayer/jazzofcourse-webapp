@@ -38,7 +38,7 @@ var eventLocation =
       <div>
         {event.description}
       </div>
-      <time>{new Date(event.date).toLocaleDateString('de-de')}</time>
+      <time class={styles.date}>{new Date(event.date).toLocaleDateString('de-de')}</time>
       <time
         >{
           new Date(event.date).toLocaleTimeString('de-de', {

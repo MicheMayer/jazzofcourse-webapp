@@ -25,9 +25,14 @@ export const heroImage = sprinkles({
 export const content = sprinkles({
   display: 'flex',
   flexDirection: 'column',
-  gap: { xs: 'sm', md: 'md'},
+  gap: { xs: 'xs', md: 'sm'},
 })
 
 export const title = sprinkles({
   marginBottom: { xs: 'xs', lg: 'lg'},
+  fontWeight: 'bold',
+})
+
+export const date = sprinkles({
+  fontWeight: 'bold',
 })
