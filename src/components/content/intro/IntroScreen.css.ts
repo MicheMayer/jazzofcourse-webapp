@@ -28,20 +28,20 @@ export const introContent = style([
         flexGrow: 1,
         display: 'grid',
         columnGap: 'initial',
-        alignItems: 'flex-end',
+        alignItems: 'center',
         gridTemplateColumns: 'auto',
         '@container': {
             '(width > 768px)': {
-                gridTemplateColumns: '1fr 1fr'
+                flexGrow: 0,
+                gridTemplateColumns: '1fr 1fr',
             }
         },
     },
-    sprinkles({
-        paddingTop: { xs: 'sm', md: 'lg', lg: '2xl'},
-        paddingBottom: { xs: 'lg', md: '3xl', lg: '4xl'},
-        marginY: { xs: 'md', md: 'lg', lg: '4xl'},
-    })
 ])
+
+export const eventQuickLink = sprinkles({
+    display: { xs: 'none', md: 'block' },
+})
 
 export const bandLogo = style([
     {

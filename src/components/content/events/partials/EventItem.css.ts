@@ -28,9 +28,18 @@ export const content = sprinkles({
   gap: { xs: 'xs', md: 'sm'},
 })
 
-export const title = sprinkles({
-  marginBottom: { xs: 'xs', lg: 'lg'},
-  fontWeight: 'bold',
+export const title = style([
+  {
+    wordWrap: 'break-word',
+  },
+  sprinkles({
+    marginBottom: { xs: 'xs', lg: 'lg'},
+    fontWeight: 'bold',
+  }),
+])
+
+export const description = style({
+  wordWrap: 'break-word',
 })
 
 export const date = sprinkles({

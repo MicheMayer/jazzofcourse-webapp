@@ -35,7 +35,7 @@ var eventLocation =
       <Heading classNames={styles.title} level="4" isCapitalized={true}
         >{event.title}</Heading
       >
-      <div>
+      <div class={styles.description}>
         {event.description}
       </div>
       <time class={styles.date}>{new Date(event.date).toLocaleDateString('de-de')}</time>

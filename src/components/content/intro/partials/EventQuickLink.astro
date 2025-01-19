@@ -1,8 +1,15 @@
 ---
+import type { DefaultComponentProps } from '@models'
 import * as styles from './EventQuickLink.css'
+
+interface Props extends DefaultComponentProps {}
+
+const { id, classNames } = Astro.props
 ---
 
-<div class={styles.container}>
-  <p class={styles.intro}>Wann spielen wir wieder?</p>
-  <a class={styles.link} href="#events">Zu den Terminen</a>
+<div class:list={classNames}>
+  <div id={id} class:list={styles.container}>
+    <p class={styles.intro}>Wann spielen wir wieder?</p>
+    <a class={styles.link} href="#events">Zu den Terminen</a>
+  </div>
 </div>
