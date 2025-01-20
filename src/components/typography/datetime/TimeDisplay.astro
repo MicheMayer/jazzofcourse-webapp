@@ -14,8 +14,7 @@ const displayMinutes = date.getMinutes() === 0 ? undefined : '2-digit'
   {
     new Date(date).toLocaleTimeString('de-de', {
       hour: '2-digit',
-      minute: displayMinutes,
-      timeZone: 'Europe/Berlin'
+      minute: displayMinutes
     })
   }
   { displayMinutes && ' Uhr' }
