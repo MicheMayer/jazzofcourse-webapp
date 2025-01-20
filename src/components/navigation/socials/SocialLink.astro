@@ -1,7 +1,7 @@
 ---
 import type { DefaultComponentProps } from '@models'
 import * as styles from './SocialLink.css'
-import type { SocialLinkColor } from './SocialLink.css'
+import type { SocialLinkColor, SocialLinkMaxWidth } from './SocialLink.css'
 import youtube from './icons/youtube.svg?raw'
 import facebook from './icons/facebook.svg?raw'
 import instagram from './icons/instagram.svg?raw'
@@ -44,21 +44,22 @@ interface Props extends DefaultComponentProps {
   label: string
   type: SocialType
   color?: SocialLinkColor
+  minifyAt?: SocialLinkMaxWidth
 }
 
-const { label, type, color = 'primaryOneDefault', classNames, id } = Astro.props
+const { label, type, color = 'primaryOneDefault', minifyAt, classNames, id } = Astro.props
 
 const socialObject = socialIcons[type]
 ---
 
 <a
   id={id}
-  class:list={[styles.socialLink({ color }), classNames]}
+  class:list={[styles.socialLink({ color: color }), classNames]}
   href={socialObject.link}
   target="_blank"
 >
   <div class:list={styles.icon}>
     <Fragment set:html={socialObject.icon} alt={socialObject.alt} />
   </div>
-  <span>{label}</span>
+  <span class:list={styles.label({minifyAt})}>{label}</span>
 </a>

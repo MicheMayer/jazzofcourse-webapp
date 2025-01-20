@@ -34,11 +34,11 @@ export const internalLinks = style([
 ])
 
 export const externalLinks = sprinkles({
-	display: { xs: 'none', md: 'flex' },
+	display: 'flex',
 	flexDirection: 'row',
 	alignItems: 'center',
 	justifyContent: 'flex-end',
-	gap: 'lg',
+	gap: { xs: 'xs', md: 'md', lg: 'lg' },
 })
 
 const pulse = keyframes({

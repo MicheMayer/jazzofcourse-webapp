@@ -25,6 +25,24 @@ export const colorVariants = Object.entries(vars.colors)
 
 export type SocialLinkColor = keyof typeof colorVariants
 
+export const breakpoints = Object.entries(vars.breakpoints)
+    .filter(([key, _]) => key !== 'xs')
+    .reduce(
+        (breakpointDictionary, [key, value]) => ({
+            ...breakpointDictionary,
+            [key]: {
+                '@media': {
+                    [`screen and (max-width: ${value})`]: {
+                        display: 'none',
+                    },
+                }
+            },
+        }),
+        {} as Record<string, { '@media': {} }>
+    )
+
+export type  SocialLinkMaxWidth = keyof typeof breakpoints
+
 export const icon = style({
     width: '1em',
     height: '1em',
@@ -38,4 +56,15 @@ export const socialLink = recipe({
         },
     },
     defaultVariants: { color: 'secondaryLight' },
+})
+
+export const label = recipe({
+    base: {
+        display: 'flex',
+    },
+    variants: {
+        minifyAt: {
+            ...breakpoints,
+        },
+    },
 })
