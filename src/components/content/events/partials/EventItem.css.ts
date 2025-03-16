@@ -9,11 +9,10 @@ export const eventItem = style([
     display: 'flex',
     flexDirection: { xs: 'column', lg: 'row' },
     gap: 'lg',
-    boxShadow: { default: 'sm', hover: 'md'},
-    padding: { xs: 'sm', lg: 'lg'},
+    boxShadow: { default: 'sm', hover: 'md' },
+    padding: { xs: 'sm', lg: 'lg' },
   })
 ])
-
 
 export const heroImage = sprinkles({
   width: { xs: 'full', lg: 'auto' },
@@ -25,7 +24,7 @@ export const heroImage = sprinkles({
 export const content = sprinkles({
   display: 'flex',
   flexDirection: 'column',
-  gap: { xs: 'xs', md: 'sm'},
+  gap: { xs: 'xs', md: 'sm' },
 })
 
 export const title = style([
@@ -33,7 +32,7 @@ export const title = style([
     wordWrap: 'break-word',
   },
   sprinkles({
-    marginBottom: { xs: 'xs', lg: 'lg'},
+    marginBottom: { xs: 'xs', lg: 'lg' },
     fontWeight: 'bold',
     textDecoration: { hover: 'underline' },
   }),
@@ -45,4 +44,8 @@ export const description = style({
 
 export const date = sprinkles({
   fontWeight: 'bold',
+})
+
+export const location = sprinkles({
+  marginTop: 'auto',
 })

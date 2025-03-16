@@ -15,10 +15,10 @@ interface Props extends DefaultComponentProps {
 const { src, alt, ...props } = Astro.props
 ---
 
-<div class:list={styles.imageContainer}>
+<div class:list={[styles.imageContainer, props.classNames]}>
   <Image
     id={props.id}
-    class:list={[styles.image, props.classNames]}
+    class:list={styles.image}
     src={src}
     alt={alt}
   />

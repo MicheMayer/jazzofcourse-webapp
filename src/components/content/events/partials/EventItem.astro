@@ -42,7 +42,7 @@ var eventLocation =
       </div>
       <DateDisplay date={event.date} classNames={styles.date} />
       <TimeDisplay date={event.date} />
-      {eventLocation && <div>{eventLocation}</div>}
+      {eventLocation && <div class={styles.location}>{eventLocation}</div>}
     </div>
   </div>
 </a>

@@ -1,0 +1,21 @@
+---
+import type { DefaultComponentProps } from '@models'
+import { Image } from 'astro:assets'
+import * as styles from './InfoBadge.css'
+
+interface Props extends DefaultComponentProps {
+  iconSrc:
+    | ImageMetadata
+    | Promise<{
+        default: ImageMetadata
+      }>
+  iconAlt: string
+}
+
+const { iconSrc, iconAlt } = Astro.props
+---
+
+<div class={styles.wrapper}>
+  <Image class={styles.icon} src={iconSrc} alt={iconAlt} />
+  <slot />
+</div>

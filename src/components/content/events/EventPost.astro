@@ -4,7 +4,10 @@ import { Image } from 'astro:assets'
 import bandFoto from '@assets/images/band-reihe.jpg'
 import Heading from '@components/typography/Heading.astro'
 import { render } from 'astro:content'
-import link from '@components/content/events/icons/link.svg'
+import linkIcon from '@components/content/events/icons/link.svg'
+import calendarIcon from '@components/content/events/icons/calendar.svg'
+import locationIcon from '@components/content/events/icons/location.svg'
+import clockIcon from '@components/content/events/icons/clock.svg'
 import * as styles from './EventPost.css'
 import Container from '@components/layout/Container.astro'
 import ViewBox from '@components/layout/ViewBox.astro'
@@ -12,6 +15,7 @@ import BackgroundImage from '@components/layout/image/BackgroundImage.astro'
 import DateDisplay from '@components/typography/datetime/DateDisplay.astro'
 import TimeDisplay from '@components/typography/datetime/TimeDisplay.astro'
 import LineUp from './partials/LineUp.astro'
+import InfoBadge from './partials/InfoBadge.astro'
 
 type Props = {
   post: CollectionEntry<'events'>
@@ -32,7 +36,7 @@ var eventLocation =
   <BackgroundImage src={event.heroImage ?? bandFoto} alt={event.title}>
     <Container classNames={styles.banner} maxWidth="lg">
       <ViewBox>
-        <div class={styles.infoBox}>
+        <div class={styles.bannerOverlayText}>
           <DateDisplay date={event.date} />
           <TimeDisplay date={event.date} />
           {eventLocation && <div>{eventLocation}</div>}
@@ -46,23 +50,35 @@ var eventLocation =
         <Heading classNames={styles.title} level="1" isCapitalized={true}>
           {event.title}
         </Heading>
-        {
-          event.weblink && (
-            <a
-              class={styles.weblink}
-              href={event.weblink}
-              target="_blank"
-              rel="noopener"
-            >
-              <Image
-                class={styles.weblinkIcon}
-                src={link}
-                alt="icon for web link"
-              />{' '}
-              zur Webseite
-            </a>
-          )
-        }
+        <div class:list={styles.infoDetails}>
+          <InfoBadge iconSrc={calendarIcon} iconAlt="calendar icon">
+            <DateDisplay date={event.date} />
+          </InfoBadge>
+          <InfoBadge iconSrc={clockIcon} iconAlt="clock icon">
+            <TimeDisplay date={event.date} />
+          </InfoBadge>
+          {
+            eventLocation && (
+              <InfoBadge iconSrc={locationIcon} iconAlt="location icon">
+                <span>{eventLocation}</span>
+              </InfoBadge>
+            )
+          }
+          {
+            event.weblink && (
+              <a
+                class:list={styles.weblink}
+                href={event.weblink}
+                target="_blank"
+                rel="noopener"
+              >
+                <InfoBadge iconSrc={linkIcon} iconAlt="hyperlink icon">
+                  <span>Weblink</span>
+                </InfoBadge>
+              </a>
+            )
+          }
+        </div>
         <section>
           <Content />
         </section>

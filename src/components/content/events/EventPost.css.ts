@@ -6,18 +6,17 @@ export const contentArea = sprinkles({
     backgroundColor: 'white',
 })
 
-export const banner = style([
-    {
+export const banner =
+    sprinkles({
         display: 'flex',
         flexDirection: 'column',
-        minHeight: '50vh',
+        minHeight: 'screen',
         alignItems: 'center',
         justifyContent: 'center',
         margin: 'auto',
-    },
-])
+    })
 
-export const infoBox = style([
+export const bannerOverlayText = style([
     {
         textShadow: '1px 1px 2px black',
         wordWrap: 'break-word',
@@ -37,20 +36,15 @@ export const title = sprinkles({
     marginBottom: { xs: 'sm', lg: 'md' },
 })
 
-export const weblink = style([
-    {
-        whiteSpace: 'nowrap',
-        cursor: 'pointer',
-    },
-    sprinkles({
-        display: 'block',
-        marginBottom: { xs: 'xs', lg: 'sm' },
-    }),
-])
+export const infoDetails = sprinkles({
+    width: 'full',
+    display: 'flex',
+    flexDirection: { xs: 'column', lg: 'row' },
+    alignItems: { xs: 'flex-start', lg: 'center' },
+    gap: { xs: 'xs', md: 'md', lg: 'lg' },
+    marginBottom: { xs: 'md', lg: 'lg' },
+})
 
-export const weblinkIcon = style({
-    display: 'inline-block',
-    height: '1.5rem',
-    width: '1.5rem',
-    verticalAlign: 'middle',
+export const weblink = style({
+    cursor: 'pointer',
 })
