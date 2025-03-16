@@ -5,10 +5,10 @@ import { getEntry } from 'astro:content'
 import * as styles from './EventItem.css'
 import instruments from '@assets/logos/band/instruments.svg'
 import Heading from '@components/typography/Heading.astro'
-import { Image } from 'astro:assets'
 import { slugify } from '@utils/content/slug'
 import DateDisplay from '@components/typography/datetime/DateDisplay.astro'
 import TimeDisplay from '@components/typography/datetime/TimeDisplay.astro'
+import ImageHoverZoom from '@components/layout/image/ImageHoverZoom.astro'
 
 interface Props extends DefaultComponentProps {
   eventEntry: CollectionEntry<'events'>
@@ -28,8 +28,8 @@ var eventLocation =
   href={`events/${slugify(eventEntry.data.title, eventEntry.data.date.toLocaleDateString())}`}
 >
   <div class:list={styles.eventItem}>
-    <Image
-      class={styles.heroImage}
+    <ImageHoverZoom
+      classNames={styles.heroImage}
       src={event.heroImage ?? instruments}
       alt={event.title}
     />

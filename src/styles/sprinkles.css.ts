@@ -162,6 +162,8 @@ const hoverableProperties = defineProperties({
     backgroundColor: vars.colors,
     /** Box shadow of an element (can be set hoverable) */
     boxShadow: vars.shadows,
+    /** Text decoration of an element (can be set hoverable) */
+    textDecoration: ['none', 'underline'],
   },
 })
 

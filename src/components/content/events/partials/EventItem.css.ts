@@ -9,7 +9,7 @@ export const eventItem = style([
     display: 'flex',
     flexDirection: { xs: 'column', lg: 'row' },
     gap: 'lg',
-    boxShadow: 'sm',
+    boxShadow: { default: 'sm', hover: 'md'},
     padding: { xs: 'sm', lg: 'lg'},
   })
 ])
@@ -35,6 +35,7 @@ export const title = style([
   sprinkles({
     marginBottom: { xs: 'xs', lg: 'lg'},
     fontWeight: 'bold',
+    textDecoration: { hover: 'underline' },
   }),
 ])
 
