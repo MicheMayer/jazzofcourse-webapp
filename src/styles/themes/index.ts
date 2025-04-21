@@ -1,4 +1,4 @@
-import { themeClass as defaultThemeClass } from "@styles/themes/defaultTheme.css";
+import defaultThemeClass from "@styles/themes/defaultTheme.css";
 
 /** Map all available brands to their corresponding theme classes */
 export const themesClasses = {

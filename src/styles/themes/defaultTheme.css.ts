@@ -50,7 +50,7 @@ export const typographyProperties = {
   secondaryFontFamily: 'Harlow Solid',
 } satisfies TypographyContract;
 
-export const themeClass = createTheme(
+export default createTheme(
   {
     colors: colorContract,
     typography: typographyContract,
