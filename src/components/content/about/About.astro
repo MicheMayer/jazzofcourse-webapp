@@ -1,11 +1,12 @@
 ---
 import Container from '@components/layout/Container.astro'
 import * as styles from './About.css'
-import ImageParallax from '@components/layout/image/ImageParallax.astro'
+import BackgroundImageParallax from '@components/layout/image/BackgroundImageParallax.astro'
 import backgroundImage from '@assets/images/impressions/piano.jpg'
 import ViewBox from '@components/layout/ViewBox.astro'
 import type { DefaultComponentProps } from '@models'
 import Heading from '@components/typography/Heading.astro'
+import Spacer from '@components/layout/negative-space/Spacer.astro'
 
 interface Props extends DefaultComponentProps {}
 
@@ -38,9 +39,11 @@ const { id, classNames } = Astro.props
       </p>
     </ViewBox>
   </Container>
-  <ImageParallax
+  <BackgroundImageParallax
     classNames={styles.spaceImage}
     src={backgroundImage}
     alt="Vor der Show in der After Work Jazz Lounge"
-  />
+  >
+    <Spacer size={25} />
+  </BackgroundImageParallax>
 </section>

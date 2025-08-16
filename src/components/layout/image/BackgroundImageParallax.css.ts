@@ -1,8 +1,12 @@
-import { style } from "@vanilla-extract/css"
+import { style } from '@vanilla-extract/css'
 
-export const backgroundImage = style({
-    position: 'relative',
+export const parallaxImage = style({
     width: '100%',
-    minHeight: '100vh',
+    height: '100vh',
     objectFit: 'cover',
+    objectPosition: 'center',
+})
+
+export const defaultSpacer = style({
+    minHeight: '100vh',
 })

@@ -4,6 +4,7 @@ export const wrapper = style({
     position: 'relative',
     width: 'auto',
     minHeight: 'min-content',
+    overflow: 'clip',
 })
 
 export const fixedBackgroundContainer = style({
@@ -11,7 +12,6 @@ export const fixedBackgroundContainer = style({
     top: 0,
     width: '100%',
     height: '100%',
-    overflow: 'clip',
     zIndex: 0,
 })
 
@@ -41,6 +41,7 @@ export const parallaxContent = style({
     top: 0,
     width: '100%',
     minHeight: '100vh',
+    objectFit: 'cover',
 })
 
 export const fixedContent = style({

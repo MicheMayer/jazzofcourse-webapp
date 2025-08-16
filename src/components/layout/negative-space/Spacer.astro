@@ -1,0 +1,12 @@
+---
+import type { DefaultComponentProps } from '@models'
+import * as styles from './Spacer.css'
+
+interface Props extends DefaultComponentProps {
+    size?: styles.SpacerSize
+}
+
+const { id, classNames, size = 10 } = Astro.props
+---
+
+<div id={id} class:list={[styles.spacer({ size }), classNames]}/>
