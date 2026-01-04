@@ -20,6 +20,8 @@ const upcomingEvents = allEvents
   .filter((event) => event.data.date.valueOf() >= Date.now().valueOf())
 const pastEvents = allEvents
   .filter((event) => event.data.date.valueOf() < Date.now().valueOf())
+  .reverse()
+  .slice(0, upcomingEvents.length < 3 ? 3 - upcomingEvents.length : 0);
 ---
 
 <section id={id} class:list={[styles.eventScreen, classNames]}>
@@ -33,7 +35,7 @@ const pastEvents = allEvents
           </div>
       }
       {
-        pastEvents.length === 0 && 
+        pastEvents.length > 0 && 
           <Heading level="2">Vergange Konzerte</Heading>
           <div class={styles.eventList}>
             {pastEvents.map((event) => <EventItem eventEntry={event} />)}

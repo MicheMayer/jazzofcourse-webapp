@@ -1,5 +1,5 @@
 import { style } from '@vanilla-extract/css'
-import { sprinkles } from '@styles'
+import { sprinkles, vars } from '@styles'
 
 export const contentArea = sprinkles({
     color: 'textDefault',
@@ -15,6 +15,10 @@ export const banner =
         justifyContent: 'center',
         margin: 'auto',
     })
+
+export const bannerBackground = style({
+    backgroundColor: vars.colors.black,
+})
 
 export const bannerOverlayText = style([
     {

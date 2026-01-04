@@ -10,7 +10,8 @@ export const container = sprinkles({
 export const intro = sprinkles({
     paddingY: 'xl',
     textAlign: 'center',
-    fontSize: 'lg',
+    fontSize: 'xl',
+    fontWeight: 'bold',
 })
 
 export const link = style([
@@ -19,12 +20,18 @@ export const link = style([
         borderWidth: '2px',
         borderRadius: vars.spaces.lg,
         borderColor: vars.colors.white,
+        backgroundColor: 'rgba(0, 0, 0, 0.5)',
+        opacity: 0.8,
+        transitionDuration: '0.2s',
+        transitionTimingFunction: 'ease-in-out',
+        ':hover': {
+            opacity: 1.0,
+        },
     },
     sprinkles({
         marginX: 'auto',
         fontSize: 'lg',
         fontWeight: 'bold',
         padding: 'sm',
-        backgroundColor: { hover: 'black' },
     })
 ])

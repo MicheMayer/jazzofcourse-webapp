@@ -33,7 +33,11 @@ var eventLocation =
 ---
 
 <>
-  <BackgroundImage src={event.heroImage ?? bandFoto} alt={event.title}>
+  <BackgroundImage
+    src={event.heroImage ?? bandFoto}
+    alt={event.title}
+    classNames={styles.bannerBackground}
+  >
     <Container classNames={styles.banner} maxWidth="lg">
       <ViewBox>
         <div class={styles.bannerOverlayText}>

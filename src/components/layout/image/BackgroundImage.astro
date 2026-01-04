@@ -11,6 +11,7 @@ interface Props extends DefaultComponentProps {
         default: ImageMetadata;
       }>;
   alt: string;
+  imageFit?: 'contain' | 'cover';
 }
 
 const {
@@ -18,10 +19,11 @@ const {
   classNames,
   src,
   alt,
+  imageFit,
 } = Astro.props
 ---
 
-<BackgroundContentContainer id={id} class:list={[classNames]} isParallax={false}>
-  <Image slot="background" class={styles.backgroundImage} src={src} alt={alt} width="1920" loading="lazy" />
+<BackgroundContentContainer id={id} classNames={[classNames]} isParallax={false}>
+  <Image slot="background" class={styles.backgroundImage({ objectFit: imageFit })} src={src} alt={alt} width="1920" loading="lazy" />
   <slot />
 </BackgroundContentContainer>

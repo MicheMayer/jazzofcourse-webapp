@@ -6,6 +6,7 @@ import type { DefaultComponentProps } from '@models'
 import VideoSampleCard from './partials/VideoSampleCard.astro'
 import EventQuickLink from './partials/EventQuickLink.astro'
 import Logo from '@components/BandLogo.astro'
+import { vars } from '@styles'
 
 interface Props extends DefaultComponentProps {}
 
@@ -27,11 +28,11 @@ const { id, classNames } = Astro.props
     muted
     loop
   >
-    <source src="/media/promo.mp4" type="video/mp4" />
-    <source src="/media/promo.mov" type="video/mp4" />
-    <source src="/media/promo.mkv" type="video/mp4" />
+    <source src="/media/intro-cinematic.mp4" type="video/mp4" />
+    <source src="/media/intro-cinematic.mov" type="video/mp4" />
+    <source src="/media/intro-cinematic.mkv" type="video/mp4" />
     <img
-      src="/media/promo.png"
+      src="/media/intro-cinematic.png"
       alt="Your browser does not support video playback."
     />
   </video>
