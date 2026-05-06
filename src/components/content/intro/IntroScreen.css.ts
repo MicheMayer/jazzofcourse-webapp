@@ -13,7 +13,7 @@ export const backgroundVideo = style({
     width: '100%',
     height: '100%',
     objectFit: 'cover',
-    filter: 'brightness(0.8) contrast(1.2) blur(1px)',
+    filter: 'brightness(0.8) contrast(1.2)',
 })
 
 export const typography = style({
