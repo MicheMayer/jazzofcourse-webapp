@@ -1,0 +1,85 @@
+---
+import Container from '@components/layout/Container.astro'
+import BackgroundImageParallax from '@components/layout/image/BackgroundImageParallax.astro'
+import Spacer from '@components/layout/negative-space/Spacer.astro'
+import ViewBox from '@components/layout/ViewBox.astro'
+import Heading from '@components/typography/Heading.astro'
+import SocialLink from '@components/navigation/socials/SocialLink.astro'
+import { Image } from 'astro:assets'
+import bookingImage from '@assets/images/impressions/michael-jens.jpg'
+import backgroundImage from '@assets/images/impressions/theater-ingolstadt.jpg'
+import type { DefaultComponentProps } from '@models'
+import * as styles from './BookingInfo.css'
+
+interface Props extends DefaultComponentProps {}
+
+const { id, classNames } = Astro.props
+---
+
+<section id={id} class:list={[styles.container, classNames]}>
+  <Container>
+    <div class={styles.layout}>
+      <div class={styles.textColumn}>
+        <ViewBox>
+          <Heading level="2">Buchung</Heading>
+          <p class={styles.paragraph}>
+            Ob dezente Hintergrundmusik für Ihr Event, mitreißender Sound für
+            Ihre Swing-Tanzveranstaltung oder ein eigenständiges Konzertprogramm:
+            Wir sorgen für den passenden Jazz-Moment.
+          </p>
+          <Heading classNames={styles.subHeading} level="3">
+            Jazz of Course
+          </Heading>
+          <p class={styles.paragraph}>
+            Offizielle Anlässe wie Hochzeiten, Geburtstage, Firmenfeiern.
+            Speziell für Tanzveranstaltungen bieten wir ein maßgeschneidertes
+            Programm von Swing, Lindy Hop, Boogie Woogie bis hin zu Bossa Nova.
+          </p>
+          <ul class={styles.lineup}>
+            <li class={styles.lineupItem}>Klavier</li>
+            <li class={styles.lineupItem}>Gesang</li>
+            <li class={styles.lineupItem}>Kontrabass</li>
+            <li class={styles.lineupItem}>Gitarre</li>
+            <li class={styles.lineupItem}>Schlagzeug</li>
+          </ul>
+          <Heading classNames={styles.subHeading} level="3">
+            Jazz of Course Trio
+          </Heading>
+          <p class={styles.paragraph}>
+            Musik im kleinen Rahmen. Dezente Hintergrundmusik für Ihre
+            Veranstaltung. Bar Jazz, Swing, Bossa Nova.
+          </p>
+          <ul class={styles.lineup}>
+            <li class={styles.lineupItem}>Klavier</li>
+            <li class={styles.lineupItem}>Gesang</li>
+            <li class={styles.lineupItem}>Kontrabass</li>
+          </ul>
+          <div class={styles.contactButton}>
+            <SocialLink
+              type="email"
+              label="Jetzt per E-Mail anfragen"
+              color="black"
+              classNames={styles.button}
+            />
+          </div>
+        </ViewBox>
+      </div>
+      <div class={styles.impression} aria-hidden="true">
+        <Image
+          class={styles.impressionImage}
+          src={bookingImage}
+          alt=""
+          width="960"
+          loading="lazy"
+        />
+        <div class={styles.impressionFade}></div>
+      </div>
+    </div>
+  </Container>
+  <BackgroundImageParallax
+    src={backgroundImage}
+    alt="Vor der Show in der After Work Jazz Lounge"
+  >
+    <Spacer size={50} />
+  </BackgroundImageParallax>
+</section>

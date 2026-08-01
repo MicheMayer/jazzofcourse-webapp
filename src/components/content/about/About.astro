@@ -2,7 +2,7 @@
 import Container from '@components/layout/Container.astro'
 import * as styles from './About.css'
 import BackgroundImageParallax from '@components/layout/image/BackgroundImageParallax.astro'
-import backgroundImage from '@assets/images/impressions/piano.jpg'
+import backgroundImage from '@assets/images/impressions/stadtplatz-abensberg.jpg'
 import ViewBox from '@components/layout/ViewBox.astro'
 import type { DefaultComponentProps } from '@models'
 import Heading from '@components/typography/Heading.astro'
@@ -27,12 +27,6 @@ const { id, classNames } = Astro.props
         vermitteln.
       </p>
       <p class={styles.paragraph}>
-        In der klassischen Besetzung mit Klavier, Gitarre, Kontrabass,
-        Schlagzeug und Gesang haben wir bekannte Jazz-Standards im Repertoire,
-        aber auch kaum bekannte Nummern, die es nicht weniger wert sind, am
-        Leben gehalten zu werden.
-      </p>
-      <p class={styles.paragraph}>
         Musik, die vorbei am Großhirn unmittelbar in den Bauch und in die Füße
         geht - ob Sie es wollen, oder nicht.<br />
         Schauen Sie bei uns rein - wir freuen uns auf Sie!
@@ -40,10 +34,9 @@ const { id, classNames } = Astro.props
     </ViewBox>
   </Container>
   <BackgroundImageParallax
-    classNames={styles.spaceImage}
     src={backgroundImage}
     alt="Vor der Show in der After Work Jazz Lounge"
   >
-    <Spacer size={25} />
+    <Spacer size={50} />
   </BackgroundImageParallax>
 </section>
