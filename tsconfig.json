@@ -2,16 +2,17 @@
   "extends": "astro/tsconfigs/strict",
   "compilerOptions": {
     "strictNullChecks": true,
-    "baseUrl": "./",
     "paths": {
-      "@models/*": ["src/models/*"],
-      "@models": ["src/models/index.ts"],
-      "@styles/*": ["src/styles/*"],
-      "@components/*": ["src/components/*"],
-      "@utils/*": ["src/utils/*"],
-      "@styles": ["src/styles/index.ts"],
-      "@layouts/*": ["src/layouts/*"],
-      "@assets/*": ["src/assets/*"],
+      "src/*": ["./src/*"],
+      "@/*": ["./src/*"],
+      "@models/*": ["./src/models/*"],
+      "@models": ["./src/models/index.ts"],
+      "@styles/*": ["./src/styles/*"],
+      "@components/*": ["./src/components/*"],
+      "@utils/*": ["./src/utils/*"],
+      "@styles": ["./src/styles/index.ts"],
+      "@layouts/*": ["./src/layouts/*"],
+      "@assets/*": ["./src/assets/*"],
     }
   }
 }

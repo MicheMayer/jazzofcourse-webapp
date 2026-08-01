@@ -23,7 +23,7 @@
 		}
 	},
 	"workspaceFolder": "/usr/projects/jazzofcourse-webapp",
-	"workspaceMount": "source=${localWorkspaceFolder},target=/usr/projects/jazzofcourse-webapp,type=bind",
+	"workspaceMount": "source=${localWorkspaceFolder},target=/usr/projects/jazzofcourse-webapp,type=bind,consistency=delegated",
 	"mounts": [
 		"source=node_modules,target=${containerWorkspaceFolder}/node_modules,type=volume"
 	], 
