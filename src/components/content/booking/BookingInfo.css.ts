@@ -5,10 +5,9 @@ export const container = sprinkles({
     minHeight: 'screen',
     backgroundColor: 'white',
     color: 'textDefault',
-    paddingY: '2xl',
 })
 
-export const layout = sprinkles({
+export const splitView = sprinkles({
     display: { xs: 'block', lg: 'flex' },
     alignItems: 'stretch',
     gap: 'xl',
@@ -17,7 +16,11 @@ export const layout = sprinkles({
 export const textColumn = style({
     flex: '1 1 55%',
     minWidth: 0,
+},
+sprinkles({
+    paddingY: '2xl',
 })
+)
 
 export const paragraph = sprinkles({
     paddingTop: { xs: 'xs', md: 'sm', lg: 'md' },
