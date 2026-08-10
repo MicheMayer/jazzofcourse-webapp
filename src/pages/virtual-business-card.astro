@@ -1,20 +1,37 @@
 ---
 import { SITE_TITLE, SITE_DESCRIPTION } from 'src/consts'
-import BaseHead from '@components/BaseHead.astro'
 import BusinessCard from '@components/content/business-card/BusinessCard.astro'
-import Container from '@components/layout/Container.astro'
+import { Container } from '@michemayer/astro-components/components'
+import { Head } from '@michemayer/astro-components/components'
+import ThemeProvider from '@components/providers/ThemeProvider.astro'
+import type { Favicon } from '@michemayer/astro-components/models'
+import { fontFaces } from '@/themes/font-faces.css'
+
+// Import the global.css file here so that it is included on
+import '@/global.css'
+
+const favicon: Favicon = {
+  type: 'image/png',
+  href: '/logos/band/favicon.png',
+}
 ---
 
 <html lang="de">
-  <head>
-  <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} image='/logos/band/full.png' />
-  </head>
+  <Head
+    title={SITE_TITLE}
+    description={SITE_DESCRIPTION}
+    image="/logos/band/full.png"
+  favicon={[favicon]},
+    fontFaces={fontFaces}
 
+  />
   <body>
     <main>
-      <Container>
-        <BusinessCard id="lets-see-paul-allens-card" />
-      </Container>
+      <ThemeProvider>
+        <Container>
+          <BusinessCard id="lets-see-paul-allens-card" />
+        </Container>
+      </ThemeProvider>
     </main>
   </body>
 </html>

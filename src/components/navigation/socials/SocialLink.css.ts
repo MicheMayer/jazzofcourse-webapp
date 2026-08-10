@@ -1,4 +1,4 @@
-import { sprinkles, vars, type Color } from '@styles'
+import { sprinkles, vars, type Color, type SizeVariant } from '@michemayer/vanilla-extract-styles'
 import { style } from '@vanilla-extract/css'
 import { recipe } from '@vanilla-extract/recipes'
 
@@ -41,7 +41,7 @@ export const breakpoints = Object.entries(vars.breakpoints)
         {} as Record<string, { '@media': {} }>
     )
 
-export type  SocialLinkMaxWidth = keyof typeof breakpoints
+export type SocialLinkMaxWidth = Exclude<SizeVariant, 'xs'>
 
 export const icon = style({
     width: '1em',

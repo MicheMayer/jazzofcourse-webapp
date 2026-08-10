@@ -1,10 +1,10 @@
 ---
-import type { DefaultComponentProps } from '@models'
+import type { DefaultComponentProps } from '@michemayer/astro-components/models'
 import * as styles from './EventQuickLink.css'
 
-interface Props extends DefaultComponentProps {}
+export type Props = DefaultComponentProps
 
-const { id, classNames } = Astro.props
+const { id, classNames } = Astro.props as Props
 ---
 
 <div class:list={classNames}>

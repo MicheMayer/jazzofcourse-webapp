@@ -1,5 +1,5 @@
 import { style } from '@vanilla-extract/css'
-import { sprinkles, vars } from '@styles'
+import { sprinkles, vars } from '@michemayer/vanilla-extract-styles'
 
 export const contentArea = sprinkles({
     color: 'textDefault',
@@ -30,13 +30,14 @@ export const bannerOverlayText = style([
         flexDirection: 'column',
         alignItems: 'center',
         gap: { xs: 'xs', lg: 'sm' },
-        fontSize: { xs: '4xl', lg: '5xl' },
+        fontSize: { xs: '3xl', lg: '4xl' },
         color: 'white',
         textAlign: 'center',
     }),
 ])
 
 export const title = sprinkles({
+    fontWeight: 'bold',
     marginBottom: { xs: 'sm', lg: 'md' },
 })
 

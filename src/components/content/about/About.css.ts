@@ -1,5 +1,4 @@
-import { sprinkles } from '@styles/sprinkles.css'
-import { style } from '@vanilla-extract/css'
+import { sprinkles } from '@michemayer/vanilla-extract-styles'
 
 export const container = sprinkles({
     color: 'textDefault',

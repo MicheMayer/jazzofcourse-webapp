@@ -1,16 +1,16 @@
 ---
-import Container from '@components/layout/Container.astro'
+import { Container } from '@michemayer/astro-components/components'
 import * as styles from './About.css'
-import BackgroundImageParallax from '@components/layout/image/BackgroundImageParallax.astro'
-import backgroundImage from '@assets/images/impressions/stadtplatz-abensberg.jpg'
+import { BackgroundImageParallaxContainer } from '@michemayer/astro-components/components'
+import impressionsImage from '@assets/images/impressions/stadtplatz-abensberg.jpg'
 import ViewBox from '@components/layout/ViewBox.astro'
-import type { DefaultComponentProps } from '@models'
-import Heading from '@components/typography/Heading.astro'
-import Spacer from '@components/layout/negative-space/Spacer.astro'
+import type { DefaultComponentProps } from '@michemayer/astro-components/models'
+import { Heading } from '@michemayer/astro-components/components'
+import { Spacer } from '@michemayer/astro-components/components'
 
-interface Props extends DefaultComponentProps {}
+export type Props = DefaultComponentProps & {}
 
-const { id, classNames } = Astro.props
+const { id, classNames } = Astro.props as Props
 ---
 
 <section id={id} class:list={[styles.container, classNames]}>
@@ -33,10 +33,10 @@ const { id, classNames } = Astro.props
       </p>
     </ViewBox>
   </Container>
-  <BackgroundImageParallax
-    src={backgroundImage}
+  <BackgroundImageParallaxContainer
+    src={impressionsImage}
     alt="Vor der Show in der After Work Jazz Lounge"
   >
     <Spacer size={50} />
-  </BackgroundImageParallax>
+  </BackgroundImageParallaxContainer>
 </section>

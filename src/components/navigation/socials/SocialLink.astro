@@ -1,5 +1,5 @@
 ---
-import type { DefaultComponentProps } from '@models'
+import type { DefaultComponentProps } from '@michemayer/astro-components/models'
 import * as styles from './SocialLink.css'
 import type { SocialLinkColor, SocialLinkMaxWidth } from './SocialLink.css'
 import youtube from './icons/youtube.svg?raw'
@@ -8,7 +8,8 @@ import instagram from './icons/instagram.svg?raw'
 import qrcode from './icons/qrcode.svg?raw'
 import envelope from './icons/envelope.svg?raw'
 
-export type SocialType = 'email' | 'youtube' | 'facebook' | 'instagram' | 'qrcode'
+export type SocialType =
+  'email' | 'youtube' | 'facebook' | 'instagram' | 'qrcode'
 
 const socialIcons = {
   youtube: {
@@ -38,18 +39,24 @@ const socialIcons = {
   },
 } as Record<SocialType, { icon: string; alt: string; link: string }>
 
-
-
-interface Props extends DefaultComponentProps {
+export type Props = DefaultComponentProps & {
   label: string
   type: SocialType
   color?: SocialLinkColor
   minifyAt?: SocialLinkMaxWidth
 }
 
-const { label, type, color = 'primaryOneDefault', minifyAt, classNames, id } = Astro.props
+const {
+  label,
+  type,
+  color = 'primaryOneDefault',
+  minifyAt,
+  classNames,
+  id,
+} = Astro.props as Props
 
-const socialObject = socialIcons[type]
+const socialType = type as SocialType
+const socialObject = socialIcons[socialType]
 ---
 
 <a
@@ -61,5 +68,5 @@ const socialObject = socialIcons[type]
   <div class:list={styles.icon}>
     <Fragment set:html={socialObject.icon} alt={socialObject.alt} />
   </div>
-  <span class:list={styles.label({minifyAt})}>{label}</span>
+  <span class:list={styles.label({ minifyAt })}>{label}</span>
 </a>

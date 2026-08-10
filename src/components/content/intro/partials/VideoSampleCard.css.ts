@@ -1,5 +1,5 @@
 import { style } from '@vanilla-extract/css'
-import { sprinkles, vars } from '@styles'
+import { sprinkles, vars } from '@michemayer/vanilla-extract-styles'
 
 export const container = sprinkles({
     position: 'relative',

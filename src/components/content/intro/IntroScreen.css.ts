@@ -1,4 +1,4 @@
-import { sprinkles, vars } from '@styles'
+import { sprinkles, vars } from '@michemayer/vanilla-extract-styles'
 import { style, createContainer } from '@vanilla-extract/css'
 
 export const fullscreen = sprinkles({

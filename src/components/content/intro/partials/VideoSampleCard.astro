@@ -1,17 +1,17 @@
 ---
-import type { DefaultComponentProps } from '@models/default-component-props'
-import BackgroundContentContainer from '@components/layout/BackgroundContentContainer.astro'
+import type { DefaultComponentProps } from '@michemayer/astro-components/models'
+import { LayeredContentContainer } from '@michemayer/astro-components/components'
 import * as styles from './VideoSampleCard.css'
 
-interface Props extends DefaultComponentProps {
+export type Props = DefaultComponentProps & {
   videoUrl: string
 }
 
-const { id, classNames, videoUrl } = Astro.props
+const { id, classNames, videoUrl } = Astro.props as Props
 ---
 
 <div id={id} class:list={[styles.container, classNames]}>
-  <BackgroundContentContainer isParallax={false}>
+  <LayeredContentContainer isParallax={false}>
     <video
       class={styles.backgroundVideo}
       slot="background"
@@ -49,5 +49,5 @@ const { id, classNames, videoUrl } = Astro.props
         </svg>
       </a>
     </div>
-  </BackgroundContentContainer>
+  </LayeredContentContainer>
 </div>

@@ -1,16 +1,16 @@
 ---
-import Container from '@components/layout/Container.astro'
+import { Container } from '@michemayer/astro-components/components'
 import * as styles from './EventScreen.css'
-import Heading from '@components/typography/Heading.astro'
-import type { DefaultComponentProps } from '@models'
+import { Heading } from '@michemayer/astro-components/components'
+import type { DefaultComponentProps } from '@michemayer/astro-components/models'
 import { getCollection } from 'astro:content'
 import EventItem from './partials/EventItem.astro'
 import ViewBox from '@components/layout/ViewBox.astro'
-import BigLetters from '../ornaments/BigLetters.astro'
 
-interface Props extends DefaultComponentProps {}
+export type Props = DefaultComponentProps
 
-const { id, classNames } = Astro.props
+const { id, classNames } = Astro.props as Props
+
 const allEvents = await getCollection('events')
   .then((events) =>
     events

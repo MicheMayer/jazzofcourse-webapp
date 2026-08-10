@@ -1,5 +1,5 @@
 import { style } from '@vanilla-extract/css'
-import { sprinkles } from '@styles'
+import { sprinkles } from '@michemayer/vanilla-extract-styles'
 
 export const footer = sprinkles({
   color: 'textLight',

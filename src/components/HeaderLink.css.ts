@@ -1,5 +1,5 @@
-import { vars } from '@styles'
-import type { Color } from '@styles'
+import { vars } from '@michemayer/vanilla-extract-styles'
+import type { Color } from '@michemayer/vanilla-extract-styles'
 import { style } from '@vanilla-extract/css'
 import { recipe } from '@vanilla-extract/recipes'
 

@@ -1,5 +1,7 @@
 {
   "extends": "astro/tsconfigs/strict",
+  "include": [".astro/types.d.ts", "**/*"],
+  "exclude": ["dist"],
   "compilerOptions": {
     "strictNullChecks": true,
     "paths": {
@@ -7,10 +9,9 @@
       "@/*": ["./src/*"],
       "@models/*": ["./src/models/*"],
       "@models": ["./src/models/index.ts"],
-      "@styles/*": ["./src/styles/*"],
+      "@themes/*": ["./src/themes/*"],
       "@components/*": ["./src/components/*"],
       "@utils/*": ["./src/utils/*"],
-      "@styles": ["./src/styles/index.ts"],
       "@layouts/*": ["./src/layouts/*"],
       "@assets/*": ["./src/assets/*"],
     }

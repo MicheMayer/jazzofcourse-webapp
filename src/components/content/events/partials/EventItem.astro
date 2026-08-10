@@ -1,14 +1,14 @@
 ---
-import type { DefaultComponentProps } from '@models'
+import type { DefaultComponentProps } from '@michemayer/astro-components/models'
 import type { CollectionEntry } from 'astro:content'
 import { getEntry } from 'astro:content'
 import * as styles from './EventItem.css'
 import instruments from '@assets/logos/band/instruments.svg'
-import Heading from '@components/typography/Heading.astro'
+import { Heading } from '@michemayer/astro-components/components'
 import { slugify } from '@utils/content/slug'
-import DateDisplay from '@components/typography/datetime/DateDisplay.astro'
-import TimeDisplay from '@components/typography/datetime/TimeDisplay.astro'
-import ImageHoverZoom from '@components/layout/image/ImageHoverZoom.astro'
+import { DateDisplay } from '@michemayer/astro-components/components'
+import { TimeDisplay } from '@michemayer/astro-components/components'
+import { ImageOnHover } from '@michemayer/astro-components/components'
 
 interface Props extends DefaultComponentProps {
   eventEntry: CollectionEntry<'events'>
@@ -20,7 +20,7 @@ const event = eventEntry.data
 var eventLocation =
   event.location?.id &&
   (await getEntry('locations', event.location.id)?.then(
-    (location) => location.data.name
+    (location) => location.data.name,
   ))
 ---
 
@@ -28,10 +28,13 @@ var eventLocation =
   href={`events/${slugify(eventEntry.data.title, eventEntry.data.date.toLocaleDateString())}`}
 >
   <div class:list={styles.eventItem}>
-    <ImageHoverZoom
+    <ImageOnHover
       classNames={styles.heroImage}
       src={event.heroImage ?? instruments}
       alt={event.title}
+      onHover="zoom"
+      ,
+      intensity={1}
     />
     <div class={styles.content}>
       <Heading classNames={styles.title} level="4" isCapitalized={true}

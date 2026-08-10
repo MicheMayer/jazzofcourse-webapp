@@ -1,14 +1,14 @@
 ---
-import Container from '@components/layout/Container.astro'
-import BackgroundImageParallax from '@components/layout/image/BackgroundImageParallax.astro'
-import Spacer from '@components/layout/negative-space/Spacer.astro'
+import { Container } from '@michemayer/astro-components/components'
+import { BackgroundImageParallaxContainer } from '@michemayer/astro-components/components'
+import { Spacer } from '@michemayer/astro-components/components'
 import ViewBox from '@components/layout/ViewBox.astro'
-import Heading from '@components/typography/Heading.astro'
+import { Heading } from '@michemayer/astro-components/components'
 import SocialLink from '@components/navigation/socials/SocialLink.astro'
 import { Image } from 'astro:assets'
 import bookingImage from '@assets/images/impressions/michael-jens.jpg'
-import backgroundImage from '@assets/images/impressions/theater-ingolstadt.jpg'
-import type { DefaultComponentProps } from '@models'
+import impressionsImage from '@assets/images/impressions/theater-ingolstadt.jpg'
+import type { DefaultComponentProps } from '@michemayer/astro-components/models'
 import * as styles from './BookingInfo.css'
 
 interface Props extends DefaultComponentProps {}
@@ -76,10 +76,10 @@ const { id, classNames } = Astro.props
       </div>
     </div>
   </Container>
-  <BackgroundImageParallax
-    src={backgroundImage}
+  <BackgroundImageParallaxContainer
+    src={impressionsImage}
     alt="Vor der Show in der After Work Jazz Lounge"
   >
     <Spacer size={50} />
-  </BackgroundImageParallax>
+  </BackgroundImageParallaxContainer>
 </section>

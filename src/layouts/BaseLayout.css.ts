@@ -1,5 +1,5 @@
 import { style } from '@vanilla-extract/css'
-import { sprinkles } from '@styles'
+import { sprinkles } from '@michemayer/vanilla-extract-styles'
 
 export const wrapper = style([
     {
@@ -18,7 +18,7 @@ export const header = style([
         top: 0,
         zIndex: 2,
     }, sprinkles({
-        boxShadow: 'md',
+        boxShadow: 'xs',
 
     }),
 ])

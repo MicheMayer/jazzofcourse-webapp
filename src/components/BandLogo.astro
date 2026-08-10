@@ -1,17 +1,17 @@
 ---
-import type { DefaultComponentProps } from '@models/default-component-props'
+import type { DefaultComponentProps } from '@michemayer/astro-components/models'
 import * as styles from './BandLogo.css'
 import type { LogoColor, Form } from './BandLogo.css'
 import { Image } from 'astro:assets'
 
 
-interface Props extends DefaultComponentProps {
+export type Props = DefaultComponentProps & {
   form: Form
   color: LogoColor
   imageMask?: ImageMetadata
 }
 
-const { id, classNames, form, color, imageMask } = Astro.props
+const { id, classNames, form, color, imageMask } = Astro.props as Props
 ---
 
 <div id={id} class:list={[styles.mask({ form, color }), classNames]}>

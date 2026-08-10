@@ -1,0 +1,9 @@
+---
+import colorTheme from "@themes/colors.css";
+import typographyTheme from "@themes/typography.css";
+import * as styles from "./ThemeProvider.css";
+---
+
+<div class:list={[colorTheme, typographyTheme, styles.applyColors]}>
+    <slot />
+</div>

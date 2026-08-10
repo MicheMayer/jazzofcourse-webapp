@@ -1,19 +1,17 @@
 ---
 import * as styles from './IntroScreen.css'
-import Container from '@components/layout/Container.astro'
-import BackgroundContentContainer from '@components/layout/BackgroundContentContainer.astro'
-import type { DefaultComponentProps } from '@models'
+import { Container, LayeredContentContainer } from '@michemayer/astro-components/components'
+import type { DefaultComponentProps } from '@michemayer/astro-components/models'
 import VideoSampleCard from './partials/VideoSampleCard.astro'
 import EventQuickLink from './partials/EventQuickLink.astro'
 import Logo from '@components/BandLogo.astro'
-import { vars } from '@styles'
 
-interface Props extends DefaultComponentProps {}
+export type Props = DefaultComponentProps
 
-const { id, classNames } = Astro.props
+const { id, classNames } = Astro.props as Props
 ---
 
-<BackgroundContentContainer
+<LayeredContentContainer
   id={id}
   class:list={[classNames]}
   isParallax={false}
@@ -38,9 +36,9 @@ const { id, classNames } = Astro.props
   </video>
   <div class:list={[styles.fullscreen, styles.typography]}>
     <Logo classNames={styles.bandLogo} form="full" color="white" />
-    <Container classNames={[styles.introContent]}>
+    <Container classNames={styles.introContent}>
       <VideoSampleCard videoUrl="https://youtu.be/CZODKM7GdSU" />
       <EventQuickLink classNames={styles.eventQuickLink} />
     </Container>
   </div>
-</BackgroundContentContainer>
+</LayeredContentContainer>

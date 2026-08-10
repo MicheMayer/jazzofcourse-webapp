@@ -1,4 +1,4 @@
-import { sprinkles } from '@styles'
+import { sprinkles } from '@michemayer/vanilla-extract-styles'
 import { style, keyframes } from '@vanilla-extract/css'
 
 export const bar = sprinkles({

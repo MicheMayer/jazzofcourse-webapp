@@ -1,8 +1,9 @@
 import { glob } from 'astro/loaders'
-import { defineCollection, reference, z } from 'astro:content'
+import { defineCollection, reference } from 'astro:content'
+import { z } from 'astro/zod'
 
 const events = defineCollection({
-  loader: glob({ pattern: '**/*.md', base: './src/content/events' }),
+  loader: glob({ pattern: '**/*.mdx', base: './src/content/events' }),
   schema: ({ image }) =>
     z.object({
       title: z.string(),
@@ -10,7 +11,7 @@ const events = defineCollection({
       date: z.coerce.date(),
       location: reference('locations').optional(),
       heroImage: image().optional(),
-      weblink: z.string().url().optional(),
+      weblink: z.url().optional(),
       lineup: z.array(reference('musicians')).optional(),
     }),
 })

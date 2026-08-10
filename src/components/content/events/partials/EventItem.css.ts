@@ -1,4 +1,4 @@
-import { sprinkles } from '@styles'
+import { sprinkles } from '@michemayer/vanilla-extract-styles'
 import { style } from '@vanilla-extract/css'
 
 export const eventItem = style([
@@ -9,7 +9,7 @@ export const eventItem = style([
     display: 'flex',
     flexDirection: { xs: 'column', lg: 'row' },
     gap: 'lg',
-    boxShadow: { default: 'sm', hover: 'md' },
+    boxShadow: { default: 'xs', hover: 'sm' },
     padding: { xs: 'sm', lg: 'lg' },
   })
 ])

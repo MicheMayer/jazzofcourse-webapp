@@ -1,21 +1,23 @@
 ---
 import { type CollectionEntry, getEntry } from 'astro:content'
-import { Image } from 'astro:assets'
 import bandFoto from '@assets/images/band-reihe.jpg'
-import Heading from '@components/typography/Heading.astro'
+import { Heading } from '@michemayer/astro-components/components'
 import { render } from 'astro:content'
 import linkIcon from '@components/content/events/icons/link.svg'
 import calendarIcon from '@components/content/events/icons/calendar.svg'
 import locationIcon from '@components/content/events/icons/location.svg'
 import clockIcon from '@components/content/events/icons/clock.svg'
 import * as styles from './EventPost.css'
-import Container from '@components/layout/Container.astro'
 import ViewBox from '@components/layout/ViewBox.astro'
-import BackgroundImage from '@components/layout/image/BackgroundImage.astro'
-import DateDisplay from '@components/typography/datetime/DateDisplay.astro'
-import TimeDisplay from '@components/typography/datetime/TimeDisplay.astro'
+import {
+  Container,
+  BackgroundImageContainer,
+} from '@michemayer/astro-components/components'
+import { DateDisplay } from '@michemayer/astro-components/components'
+import { TimeDisplay } from '@michemayer/astro-components/components'
 import LineUp from './partials/LineUp.astro'
 import InfoBadge from './partials/InfoBadge.astro'
+import { mdxComponents } from 'src/components/providers/mdx-component-overrides'
 
 type Props = {
   post: CollectionEntry<'events'>
@@ -23,17 +25,18 @@ type Props = {
 
 const { post } = Astro.props
 const event = post.data
+
 const { Content } = await render(post)
 
 var eventLocation =
   event.location?.id &&
   (await getEntry('locations', event.location.id)?.then(
-    (location) => location.data.name
+    (location) => location.data.name,
   ))
 ---
 
 <>
-  <BackgroundImage
+  <BackgroundImageContainer
     src={event.heroImage ?? bandFoto}
     alt={event.title}
     classNames={styles.bannerBackground}
@@ -47,7 +50,7 @@ var eventLocation =
         </div>
       </ViewBox>
     </Container>
-  </BackgroundImage>
+  </BackgroundImageContainer>
   <article class={styles.contentArea}>
     <Container maxWidth="md">
       <ViewBox>
@@ -84,7 +87,7 @@ var eventLocation =
           }
         </div>
         <section>
-          <Content />
+          <Content components={mdxComponents} />
         </section>
         <LineUp lineup={event.lineup} />
       </ViewBox>
