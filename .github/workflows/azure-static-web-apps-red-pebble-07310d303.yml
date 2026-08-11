@@ -20,17 +20,20 @@ jobs:
     runs-on: ubuntu-latest
     name: Build Job
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
         with:
           submodules: true
 
       - name: Setup Node.js environment
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v7
         with:
-          node-version: 22.x
+          node-version: 24.x
+
+      - name: Authenticate with package registry
+        run: npm set "//npm.pkg.github.com/:_authToken=${{ secrets.GITHUB_TOKEN }}"
 
       - name: Cache npm dependencies
-        uses: actions/cache@v4
+        uses: actions/cache@v6
         with:
           path: node_modules
           key: node-${{ hashFiles('**/package-lock.json') }}
@@ -40,7 +43,7 @@ jobs:
           npm install
           npm run build --if-present
 
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         with:
           name: static-webapp-artifact
           path: dist/
@@ -51,10 +54,10 @@ jobs:
     needs: [ build_job ]
     name: Azure Deploy Job
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
         
       - name: Download build artifact
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v7
         with:
           name: static-webapp-artifact
           path: public/
