@@ -1,11 +1,6 @@
 import { style } from '@vanilla-extract/css'
 import { sprinkles, vars } from '@michemayer/vanilla-extract-styles'
 
-export const contentArea = sprinkles({
-    color: 'textDefault',
-    backgroundColor: 'white',
-})
-
 export const banner =
     sprinkles({
         display: 'flex',
@@ -15,10 +10,6 @@ export const banner =
         justifyContent: 'center',
         margin: 'auto',
     })
-
-export const bannerBackground = style({
-    backgroundColor: vars.colors.black,
-})
 
 export const bannerOverlayText = style([
     {
@@ -31,7 +22,7 @@ export const bannerOverlayText = style([
         alignItems: 'center',
         gap: { xs: 'xs', lg: 'sm' },
         fontSize: { xs: '3xl', lg: '4xl' },
-        color: 'white',
+        color: 'textLight',
         textAlign: 'center',
     }),
 ])

@@ -39,7 +39,6 @@ var eventLocation =
   <BackgroundImageContainer
     src={event.heroImage ?? bandFoto}
     alt={event.title}
-    classNames={styles.bannerBackground}
   >
     <Container classNames={styles.banner} maxWidth="lg">
       <ViewBox>
@@ -51,7 +50,7 @@ var eventLocation =
       </ViewBox>
     </Container>
   </BackgroundImageContainer>
-  <article class={styles.contentArea}>
+  <article>
     <Container maxWidth="md">
       <ViewBox>
         <Heading classNames={styles.title} level="1" isCapitalized={true}>

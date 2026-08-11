@@ -33,14 +33,13 @@ const { title, description, image = '/logos/band/full.png' } = Astro.props
     favicon={[favicon]}
     fontFaces={fontFaces}
   />
-
-  <body class:list={styles.wrapper}>
-    <ThemeProvider>
+  <ThemeProvider as="body" classNames={styles.wrapper}>
+    <div class={styles.stretchContent}>
       <Header classNames={styles.header} />
       <main>
         <slot />
       </main>
-      <Footer />
-    </ThemeProvider>
-  </body>
+    </div>
+    <Footer class={styles.footer} />
+  </ThemeProvider>
 </html>

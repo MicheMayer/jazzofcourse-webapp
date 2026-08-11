@@ -2,7 +2,7 @@ import { sprinkles } from '@michemayer/vanilla-extract-styles'
 
 export const container = sprinkles({
     color: 'textDefault',
-    backgroundColor: 'white',
+    backgroundColor: 'secondaryLight',
 })
 
 export const paragraph = sprinkles({

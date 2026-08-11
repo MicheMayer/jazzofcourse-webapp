@@ -31,4 +31,17 @@ const musicians = defineCollection({
   }),
 })
 
-export const collections = { events, locations, musicians }
+const posts = defineCollection({
+  loader: glob({ pattern: '**/*.mdx', base: './src/content/posts' }),
+  schema: ({ image }) =>
+    z.object({
+      title: z.string(),
+      description: z.string(),
+      slug: z.string().optional(),
+      category: z.enum(['post', 'legal']).default('post'),
+      created: z.coerce.date(),
+      heroImage: image().optional(),
+    }),
+})
+
+export const collections = { events, locations, musicians, posts }

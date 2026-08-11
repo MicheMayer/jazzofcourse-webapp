@@ -2,7 +2,7 @@
 import { SITE_TITLE, SITE_DESCRIPTION } from '@/consts'
 import { type CollectionEntry, getCollection } from 'astro:content'
 import BaseLayout from '@layouts/BaseLayout.astro'
-import { slugify } from '@utils/content/slug'
+import { slugify } from '@michemayer/astro-components/utils'
 import EventPost from '@components/content/events/EventPost.astro'
 
 export async function getStaticPaths() {
@@ -16,10 +16,12 @@ export async function getStaticPaths() {
 }
 type Props = CollectionEntry<'events'>
 
+// this fixes the issue of vanilla-extract not rendering within mdx files by preloading each component
+import.meta.glob(`@components/*.astro`)
 const post = Astro.props
 ---
 
-<BaseLayout 
+<BaseLayout
   title={SITE_TITLE}
   description={SITE_DESCRIPTION}
   image={post.data.heroImage?.src}

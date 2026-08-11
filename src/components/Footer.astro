@@ -2,20 +2,34 @@
 import { BAND_NAME } from 'src/consts'
 import * as styles from './Footer.css'
 import SocialLink from '@components/navigation/socials/SocialLink.astro'
+import { Container } from '@michemayer/astro-components/components'
 
 const today = new Date()
 ---
 
-<footer class={styles.footer}>
-  <p class={styles.copyrightDisclaimer}>
-    &copy; {today.getFullYear()}
-    {BAND_NAME}. All rights reserved.
-  </p>
-  <div class={styles.socialLinks}>
-    <SocialLink type="email" label="Kontakt" color='secondaryLight' />
-    <SocialLink type="instagram" label="Instagram" color='secondaryLight' />
-    <SocialLink type="facebook" label="Facebook" color='secondaryLight' />
-    <SocialLink type="youtube" label="Youtube" color='secondaryLight' />
-    <SocialLink type="qrcode" label="Virtuelle Visitenkarte" color='secondaryLight' />
-  </div>
+<footer id="footer" class={styles.footer}>
+  <Container>
+    <div class={styles.socialLinks}>
+      <SocialLink type="instagram" label="Instagram" color="textLight" />
+      <SocialLink type="facebook" label="Facebook" color="textLight" />
+      <SocialLink type="youtube" label="Youtube" color="textLight" />
+      <SocialLink type="email" label="Kontakt" color="textLight" />
+      <SocialLink
+        type="qrcode"
+        label="Virtuelle Visitenkarte"
+        color="textLight"
+      />
+    </div>
+    <div class={styles.legalInfo}>
+      <a href="/legal/datenschutz" class={styles.legalLink}>Datenschutz</a>
+      <a href="/legal/datenschutz-social-media" class={styles.legalLink}>
+        Datenschutz Social Media
+      </a>
+      <a href="/legal/impressum" class={styles.legalLink}>Impressum</a>
+    </div>
+    <p class={styles.copyrightDisclaimer}>
+      &copy; {today.getFullYear()}
+      {BAND_NAME}. All rights reserved.
+    </p>
+  </Container>
 </footer>

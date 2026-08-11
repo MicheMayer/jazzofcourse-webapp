@@ -55,7 +55,7 @@ export const socialLink = recipe({
             ...colorVariants,
         },
     },
-    defaultVariants: { color: 'secondaryLight' },
+    defaultVariants: { color: 'secondaryDark' },
 })
 
 export const label = recipe({

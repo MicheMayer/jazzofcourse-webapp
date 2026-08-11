@@ -1,0 +1,38 @@
+---
+import { type CollectionEntry, getCollection, render } from 'astro:content'
+import BaseLayout from '@layouts/BaseLayout.astro'
+import { slugify } from '@michemayer/astro-components/utils'
+import * as styles from './Post.css'
+import { mdxComponents } from 'src/components/providers/mdx-component-overrides'
+import { Container } from '@michemayer/astro-components/components'
+
+export async function getStaticPaths() {
+  const posts = await getCollection('posts')
+
+  return posts.map((post) => ({
+    params: {
+      slug:
+        post.data.slug ??
+        slugify(post.data.title, post.data.created.toLocaleDateString()),
+      category: post.data.category,
+    },
+    props: post,
+  }))
+}
+
+type Props = CollectionEntry<'posts'>
+
+const post = Astro.props as Props
+
+// this fixes the issue of vanilla-extract not rendering within mdx files by preloading each component
+import.meta.glob(`@components/*.astro`)
+const { Content } = await render(post)
+---
+
+<BaseLayout title={post.data.title} description={post.data.description}>
+  <div class={styles.contentArea}>
+    <Container maxWidth="md" as="article">
+      <Content components={mdxComponents} />
+    </Container>
+  </div>
+</BaseLayout>

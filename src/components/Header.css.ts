@@ -2,7 +2,7 @@ import { sprinkles } from '@michemayer/vanilla-extract-styles'
 import { style, keyframes } from '@vanilla-extract/css'
 
 export const bar = sprinkles({
-	backgroundColor: 'white',
+	backgroundColor: 'secondaryLight',
 	padding: { xs: 'xs', lg: 'md' },
 })
 

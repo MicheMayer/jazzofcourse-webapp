@@ -3,14 +3,20 @@ import { sprinkles } from '@michemayer/vanilla-extract-styles'
 
 export const wrapper = style([
     {
-        display: 'relative',
+        display: 'flex',
+        flexDirection: 'column',
     },
     sprinkles({
         fontFamily: 'primary',
-        backgroundColor: 'primaryOneDefault',
+        backgroundColor: 'secondaryLight',
         color: 'textDefault',
+        minHeight: 'screen',
     })
 ])
+
+export const stretchContent = style({
+    flexGrow: 1,
+})
 
 export const header = style([
     {
@@ -20,5 +26,15 @@ export const header = style([
     }, sprinkles({
         boxShadow: 'xs',
 
+    }),
+])
+
+export const footer = style([
+    {
+        position: 'sticky',
+        bottom: 0,
+        zIndex: 2,
+    }, sprinkles({
+        boxShadow: 'xs',
     }),
 ])

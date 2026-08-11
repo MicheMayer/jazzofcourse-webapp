@@ -3,7 +3,7 @@ import { sprinkles, vars } from '@michemayer/vanilla-extract-styles'
 
 export const container = sprinkles({
     minHeight: 'screen',
-    backgroundColor: 'white',
+    backgroundColor: 'secondaryLight',
     color: 'textDefault',
 })
 
@@ -82,7 +82,7 @@ export const impressionImage = style({
 export const impressionFade = style({
     position: 'absolute',
     inset: 0,
-    background: `linear-gradient(to right, ${vars.colors.white} 0%, rgba(255, 255, 255, 0) 70%)`,
+    background: `linear-gradient(to right, ${vars.colors.secondaryLight} 0%, rgba(255, 255, 255, 0) 70%)`,
 })
 
 export const contactButton = sprinkles({
