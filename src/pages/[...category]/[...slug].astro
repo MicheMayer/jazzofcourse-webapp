@@ -1,10 +1,8 @@
 ---
-import { type CollectionEntry, getCollection, render } from 'astro:content'
+import { type CollectionEntry, getCollection } from 'astro:content'
 import BaseLayout from '@layouts/BaseLayout.astro'
 import { slugify } from '@michemayer/astro-components/utils'
-import * as styles from './Post.css'
-import { mdxComponents } from 'src/components/providers/mdx-component-overrides'
-import { Container } from '@michemayer/astro-components/components'
+import Post from '@components/content/posts/Post.astro'
 
 export async function getStaticPaths() {
   const posts = await getCollection('posts')
@@ -26,13 +24,8 @@ const post = Astro.props as Props
 
 // this fixes the issue of vanilla-extract not rendering within mdx files by preloading each component
 import.meta.glob(`@components/*.astro`)
-const { Content } = await render(post)
 ---
 
 <BaseLayout title={post.data.title} description={post.data.description}>
-  <div class={styles.contentArea}>
-    <Container maxWidth="md" as="article">
-      <Content components={mdxComponents} />
-    </Container>
-  </div>
+  <Post post={post} />
 </BaseLayout>

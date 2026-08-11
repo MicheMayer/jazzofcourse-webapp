@@ -1,0 +1,19 @@
+---
+import { type CollectionEntry, render } from 'astro:content'
+import { Container } from '@michemayer/astro-components/components'
+import * as styles from './Post.css.ts'
+import { mdxComponents } from 'src/components/providers/mdx-component-overrides'
+
+type Props = {
+  post: CollectionEntry<'posts'>
+}
+
+const { post } = Astro.props
+const { Content } = await render(post)
+---
+
+<div class={styles.contentArea}>
+  <Container maxWidth="md" as="article">
+    <Content components={mdxComponents} />
+  </Container>
+</div>
