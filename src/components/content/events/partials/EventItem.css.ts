@@ -1,31 +1,50 @@
-import { sprinkles } from '@michemayer/vanilla-extract-styles'
+import { sprinkles, vars } from '@michemayer/vanilla-extract-styles'
 import { style } from '@vanilla-extract/css'
 
 export const eventItem = style([
   {
     cursor: 'pointer',
+    alignItems: 'stretch',
   },
   sprinkles({
     display: 'flex',
     flexDirection: { xs: 'column', lg: 'row' },
     gap: 'lg',
     boxShadow: { default: 'xs', hover: 'sm' },
-    padding: { xs: 'sm', lg: 'lg' },
+    padding: 'md',
   })
 ])
 
-export const heroImage = sprinkles({
-  width: { xs: 'full', lg: 'auto' },
-  maxWidth: { xs: 'full', lg: 'xs' },
-  height: { xs: 'auto', lg: 'full' },
-  objectFit: 'cover',
+export const heroImageWrapper = style({
+  height: '20rem',
+  '@media': {
+    [`screen and (min-width: ${vars.breakpoints.lg})`]: {
+      height: 'auto',
+      flex: 1,
+    },
+  },
 })
 
-export const content = sprinkles({
-  display: 'flex',
-  flexDirection: 'column',
-  gap: { xs: 'xs', md: 'sm' },
+export const heroImage = sprinkles({
+  width: 'full',
+  height: 'full',
 })
+
+export const content = style([
+  sprinkles({
+    display: 'flex',
+    flexDirection: 'column',
+    gap: { xs: 'xs', md: 'sm' },
+  }),
+  {
+    '@media': {
+      [`screen and (min-width: ${vars.breakpoints.lg})`]: {
+        flex: 2,
+        minHeight: '16em'
+      },
+    },
+  },
+])
 
 export const title = style([
   {

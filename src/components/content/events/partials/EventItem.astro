@@ -9,6 +9,7 @@ import { slugify } from '@utils/content/slug'
 import { DateDisplay } from '@michemayer/astro-components/components'
 import { TimeDisplay } from '@michemayer/astro-components/components'
 import { ImageOnHover } from '@michemayer/astro-components/components'
+import { LayoutUncoupler } from '@michemayer/astro-components/components'
 
 interface Props extends DefaultComponentProps {
   eventEntry: CollectionEntry<'events'>
@@ -28,14 +29,15 @@ var eventLocation =
   href={`events/${slugify(eventEntry.data.title, eventEntry.data.date.toLocaleDateString())}`}
 >
   <div class:list={styles.eventItem}>
-    <ImageOnHover
-      classNames={styles.heroImage}
-      src={event.heroImage ?? instruments}
-      alt={event.title}
-      onHover="zoom"
-      ,
-      intensity={1}
-    />
+    <LayoutUncoupler classNames={styles.heroImageWrapper}>
+      <ImageOnHover
+        classNames={styles.heroImage}
+        src={event.heroImage ?? instruments}
+        alt={event.title}
+        onHover="zoom"
+        intensity={1}
+      />
+    </LayoutUncoupler>
     <div class={styles.content}>
       <Heading classNames={styles.title} level="4" isCapitalized={true}
         >{event.title}</Heading

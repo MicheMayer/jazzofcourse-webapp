@@ -7,20 +7,18 @@ export const container = sprinkles({
     color: 'textDefault',
 })
 
-export const splitView = sprinkles({
-    display: { xs: 'block', lg: 'flex' },
-    alignItems: 'stretch',
-    gap: 'xl',
-})
-
-export const textColumn = style({
-    flex: '1 1 55%',
-    minWidth: 0,
-},
-sprinkles({
-    paddingY: '2xl',
-})
-)
+export const textColumn = style([
+    sprinkles({
+        paddingY: '2xl',
+    }),
+    {
+        '@media': {
+            [`screen and (min-width: ${vars.breakpoints.lg})`]: {
+                maxWidth: '55%',
+            },
+        },
+    },
+])
 
 export const paragraph = sprinkles({
     paddingTop: { xs: 'xs', md: 'sm', lg: 'md' },
@@ -63,10 +61,13 @@ export const lineupItem = style([
 export const impression = style([
     sprinkles({
         display: { xs: 'none', lg: 'block' },
+        height: 'full',
+        position: 'absolute',
     }),
     {
-        position: 'relative',
-        flex: '1 1 45%',
+        top: 0,
+        right: 0,
+        width: '45%',
         overflow: 'hidden',
     },
 ])

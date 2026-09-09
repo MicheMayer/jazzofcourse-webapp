@@ -1,6 +1,7 @@
 ---
 import { Container } from '@michemayer/astro-components/components'
 import { BackgroundImageParallaxContainer } from '@michemayer/astro-components/components'
+import { LayeredContentContainer } from '@michemayer/astro-components/components'
 import { Spacer } from '@michemayer/astro-components/components'
 import ViewBox from '@components/layout/ViewBox.astro'
 import { Heading } from '@michemayer/astro-components/components'
@@ -17,8 +18,18 @@ const { id, classNames } = Astro.props
 ---
 
 <section id={id} class:list={[styles.container, classNames]}>
-  <Container>
-    <div class={styles.splitView}>
+  <LayeredContentContainer>
+    <div slot="background" class={styles.impression} aria-hidden="true">
+      <Image
+        class={styles.impressionImage}
+        src={bookingImage}
+        alt=""
+        width="960"
+        loading="lazy"
+      />
+      <div class={styles.impressionFade}></div>
+    </div>
+    <Container>
       <div class={styles.textColumn}>
         <ViewBox>
           <Heading level="2">Buchung</Heading>
@@ -64,18 +75,8 @@ const { id, classNames } = Astro.props
           </div>
         </ViewBox>
       </div>
-      <div class={styles.impression} aria-hidden="true">
-        <Image
-          class={styles.impressionImage}
-          src={bookingImage}
-          alt=""
-          width="960"
-          loading="lazy"
-        />
-        <div class={styles.impressionFade}></div>
-      </div>
-    </div>
-  </Container>
+    </Container>
+  </LayeredContentContainer>
   <BackgroundImageParallaxContainer
     src={impressionsImage}
     alt="Vor der Show in der After Work Jazz Lounge"
